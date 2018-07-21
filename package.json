@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "debug": "concurrently \"node --inspect-brk=43240 server.js\" \"npm run client\"",
-    "start": "if-env NODE_ENV=production && npm run server || npm run start:dev",
-    "server": "node server.js",
+    "debug": "concurrently \"node --inspect-brk=43240 server/server.js\" \"npm run client\"",
+    "start": "if-env NODE_ENV=production && npm run server/server.js || npm run start:dev",
+    "server": "node server/server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "seed": "node scripts/seedDB.js",
     "client": "cd client && npm run start",
@@ -21,11 +21,21 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.17.1",
     "babel-cli": "^6.26.0",
-    "bcrypt": "^3.0.0",
-    "body-parser": "^1.17.2",
-    "express": "^4.15.4",
-    "mongoose": "^4.11.7"
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "connect-mongo": "^2.0.1",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.0.2",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.0",
+    "spectre.css": "^0.5.0"
   }
 }
