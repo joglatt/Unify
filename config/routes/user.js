@@ -1,5 +1,3 @@
-const express = require("express");
-const router = express.Router();
 const User = require("../database/models/user");
 const passport = require("../passport");
 // import Profile from "../../client/src/components/profile.js";
@@ -13,85 +11,81 @@ const passport = require("../passport");
 //   return res.redirect("/");
 //   };
 
-router.post("/", (req, res) => {
-  console.log("user signup");
+module.exports = function(app){
 
-  const { username, password, email, frontEnd, backEnd, location } = req.body;
-  // ADD VALIDATION
-  User.findOne({ username: username }, (err, user) => {
-    if (err) {
-      console.log("User.js post error: ", err);
-    } else if (user) {
-      res.json({
-        error: `Sorry, already a user with the username: ${username}`
-      });
+  app.post("/user", (req, res) => {
+    console.log("user signup");
+
+    const { username, password, email, frontEnd, backEnd, location } = req.body;
+    // ADD VALIDATION
+    User.findOne({ username: username }, (err, user) => {
+      if (err) {
+        console.log("User.js post error: ", err);
+      } else if (user) {
+        res.json({
+          error: `Sorry, already a user with the username: ${username}`
+        });
+      } else {
+        const newUser = new User({
+          username: username,
+          password: password,
+          email: email,
+          frontEnd: frontEnd,
+          backEnd: backEnd,
+          location: location
+        });
+        newUser.save((err, savedUser) => {
+          if (err) return res.json(err);
+          res.json(savedUser);
+        });
+      }
+    });
+  });
+
+  app.post(
+    "/user/login",
+    function(req, res, next) {
+      console.log("routes/user.js, login, req.body: ");
+      console.log(req.body);
+      next();
+    },
+    passport.authenticate("local"),
+    (req, res) => {
+      console.log("logged in", req.user);
+      var userInfo = {
+        username: req.user.username
+      };
+      res.send(userInfo);
+    }
+  );
+
+  app.get("/user", (req, res, next) => {
+    console.log("===== user!!======");
+    console.log(req.user);
+    if (req.user) {
+      res.json({ user: req.user });
     } else {
-      const newUser = new User({
-        username: username,
-        password: password,
-        email: email,
-        frontEnd: frontEnd,
-        backEnd: backEnd,
-        location: location
-      });
-      newUser.save((err, savedUser) => {
-        if (err) return res.json(err);
-        res.json(savedUser);
-      });
+      res.json({ user: null });
     }
   });
-});
 
-router.post(
-  "/login",
-  function(req, res, next) {
-    console.log("routes/user.js, login, req.body: ");
-    console.log(req.body);
-    next();
-  },
-  passport.authenticate("local"),
-  (req, res) => {
-    console.log("logged in", req.user);
-    var userInfo = {
-      username: req.user.username
-    };
-    res.send(userInfo);
-  }
-);
+  app.get("/user/logout", (req, res) => {
+    if (req.user) {
+      req.logout();
+      // res.send({ msg: "logging out" });
+      res.status(200).json({location:'/user/home'})
+    } else {
+      res.send({ msg: "no user to log out" });
+    }
+  });
 
-router.get("/", (req, res, next) => {
-  console.log("===== user!!======");
-  console.log(req.user);
-  if (req.user) {
-    res.json({ user: req.user });
-  } else {
-    res.json({ user: null });
-  }
-});
-
-router.post("/logout", (req, res) => {
-  if (req.user) {
-    req.logout();
-    res.send({ msg: "logging out" });
-  } else {
-    res.send({ msg: "no user to log out" });
-  }
-});
-
-router.get("/profile", (req, res, next) => {
-  console.log("profile page")
-  console.log(req.user)
-  if (req.user) {
-    return res.status(200).json({
-      user: req.user,
-      authenticated: true
-    });
-  } else {
-    return res.status(401).json({
-      error: "User is not authenticated",
-      authenticated: false
-    });
-  }
-});
-
-module.exports = router;
+  app.get("/user/profile", (req, res, next) => {
+    console.log("profile page")
+    console.log(req.user);
+    if (req.user) {
+      res.json({ user: req.user });
+    } else {
+      res.redirect("/user/login")
+    }
+  });
+}

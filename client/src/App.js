@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   getUser() {
-    axios.get("/user/").then(response => {
+    axios.get("/user").then(response => {
       console.log("Get user response: ");
       console.log(response.data);
       if (response.data.user) {
@@ -55,16 +55,15 @@ class App extends Component {
       <div className="App">
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         {/* greet user if logged in: */}
-        {this.state.loggedIn && <p>Join the party, {this.state.username}!</p>}
         {/* Routes to different components */}
-        <Route exact path="/" component={Home} />
+        <Route exact path="/user/home" component={Home} />
         <Route
-          path="/login"
+          exact path="/user/login"
           render={() => <LoginForm updateUser={this.updateUser} />}
         />
-        <Route path="/signup" render={() => <Signup />} />
+        <Route exact path="/user/signup" render={() => <Signup />} />
 
-         <Route path="/profile" render={() => <Profile />} />
+         <Route exact path="/user/profile" render={() => <Profile />} />
       </div>
     );
   }

@@ -12,8 +12,6 @@ const userSchema = new Schema({
 	frontEnd: { type: String, unique: false, required: true },
 	backEnd: { type: String, unique: false, required: true },
 	location: { type: String, unique: false, required: false }
-
-
 })
 
 // Define schema methods
