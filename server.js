@@ -34,7 +34,7 @@ app.use(passport.session()) // calls the deserializeUser
 
 // Routes
 require('./config/routes/user.js')(app)
-//app.use('/user/profile', user)
+
 // Starting Server 
 app.listen(PORT, () => {
 	console.log(`App listening on PORT: ${PORT}`)
