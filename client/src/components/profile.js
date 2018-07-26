@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
-import { Container } from './Grid';
+import { Container } from "./Grid";
 import api from "../api/api";
 class Profile extends Component {
   constructor() {
@@ -11,20 +11,24 @@ class Profile extends Component {
       userInfo: {}
     };
   }
-  loadUser = () => {
-    api.getUser()
-      .then(res =>
-        this.setState({ userInfo: res.data})
-      )
-      .catch(err => console.log(err));
-  };
+
+  // loadUser = userId => {
+  //   console.log('hitting this line');
+  //   api
+  //     .getUser(userId)
+  //     .then(res => this.setState({ userInfo: res.data }))
+  //     .catch(err => console.log(err));
+  // };
+
   componentDidMount() {
+    // axios.get("/user/profile").then(this.loadUser(response.data.user._id));
+
     axios.get("/user/profile").then(response => {
-      console.log('full response: ' + response);
+      console.log("full response: " + response);
       console.log("Get user response: ");
       console.log(response.data);
-      console.log('this is the username: ' + response.data.user.username);
-      console.log('this is the frontend info: ' + response.data.user.frontEnd);
+      console.log("this is the username: " + response.data.user.username);
+      console.log("this is the frontend info: " + response.data.user.frontEnd);
       if (response.data.user) {
         console.log("Get User: There is a user saved in the server session: ");
 
@@ -34,6 +38,7 @@ class Profile extends Component {
           userInfo: response.data
         });
       } else {
+        // this.loadUser(response.data.user._id)
         console.log("Get user: no user");
         this.setState({
           loggedIn: false,
@@ -41,15 +46,17 @@ class Profile extends Component {
         });
       }
     });
-  
   }
   render() {
-    return ( 
-      this.state.loggedIn && 
-      <Container>
-      <div>Profile</div>
-      <h1> Hello !</h1>
-      </Container>
+    console.log("this.state.userInfo")
+    console.log(this.state.userInfo)
+    return (
+      this.state.loggedIn && (
+        <Container>
+          <div>Profile</div>
+          <h1> Hello !</h1>
+        </Container>
+      )
     );
   }
 }

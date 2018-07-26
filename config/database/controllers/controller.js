@@ -1,4 +1,4 @@
-const path = require("path");
+
 const router = require("express").Router();
 const db = require("../models");
 
@@ -38,7 +38,7 @@ const userFunctions = {
 
 // router.delete("/api/books/:id", bookFunctions.remove);
 
-app.get("/api/users/", userFunctions.findById);
+router.get("/api/users/", userFunctions.findById);
 
 // router.patch("/api/books/:id", bookFunctions.update);
 module.exports = router;

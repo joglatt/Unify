@@ -7,6 +7,8 @@ const MongoStore = require('connect-mongo')(session)
 const passport = require('./config/passport');
 const app = express()
 const PORT = process.env.PORT || 3001;
+const controller = require("./config/database/controllers/controller.js")
+
 
 // MIDDLEWARE
 app.use(morgan('dev'))
@@ -34,6 +36,7 @@ app.use(passport.session()) // calls the deserializeUser
 
 // Routes
 require('./config/routes/user.js')(app)
+app.use(controller);
 
 // Starting Server 
 app.listen(PORT, () => {
