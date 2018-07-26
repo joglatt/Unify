@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { Container } from './Grid';
-
+import api from "../api/api";
 class Profile extends Component {
   constructor() {
     super();
@@ -11,6 +11,13 @@ class Profile extends Component {
       userInfo: {}
     };
   }
+  loadUser = () => {
+    api.getUser()
+      .then(res =>
+        this.setState({ userInfo: res.data})
+      )
+      .catch(err => console.log(err));
+  };
   componentDidMount() {
     axios.get("/user/profile").then(response => {
       console.log('full response: ' + response);

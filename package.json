@@ -21,7 +21,6 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
-    "axios": "^0.17.1",
     "babel-cli": "^6.26.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",

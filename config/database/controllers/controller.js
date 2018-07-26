@@ -9,11 +9,11 @@ const userFunctions = {
 //       .then(dbModel => res.json(dbModel))
 //       .catch(err => res.status(422).json(err));
 //   },
-//   findById: function(req, res) {
-//     db.User.findById(req.params.id)
-//       .then(dbModel => res.json(dbModel))
-//       .catch(err => res.status(422).json(err));
-//   },
+  findById: function(req, res) {
+    db.User.findById(req.params.id)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
 //   create: function(req, res) {
 //     db.User.create(req.body)
 //       .then(dbModel => res.json(dbModel))
@@ -38,6 +38,7 @@ const userFunctions = {
 
 // router.delete("/api/books/:id", bookFunctions.remove);
 
-// router.get("/api/books/:id", bookFunctions.findById);
+app.get("/api/users/", userFunctions.findById);
 
 // router.patch("/api/books/:id", bookFunctions.update);
+module.exports = router;

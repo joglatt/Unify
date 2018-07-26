@@ -1,15 +1,8 @@
 const User = require("../database/models/user");
 const passport = require("../passport");
-// import Profile from "../../client/src/components/profile.js";
+// const controller =require( "../database/controllers/controller.js");
 
-// const isAuthenticated = function(req, res, next) {
-//   if (req.user) {
-//     return next();
-//   }
 
-//   // If the user isn't logged in, redirect them to the login page
-//   return res.redirect("/");
-//   };
 
 module.exports = function(app){
 
@@ -59,7 +52,7 @@ module.exports = function(app){
     }
   );
 
-  app.get("/user", (req, res, next) => {
+  app.get("/user/", (req, res, next) => {
     console.log("===== user!!======");
     console.log(req.user);
     if (req.user) {
