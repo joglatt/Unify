@@ -3,12 +3,12 @@ const router = require("express").Router();
 const db = require("../models");
 
 const userFunctions = {
-//   findAll: function(req, res) {
-//     db.User.find(req.query)
-//       .sort({ date: -1 })
-//       .then(dbModel => res.json(dbModel))
-//       .catch(err => res.status(422).json(err));
-//   },
+  findAll: function(req, res) {
+    db.User.find(req.query)
+      .sort({ date: -1 })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   findById: function(req, res) {
     db.User.findById(req.params.id)
       .then(dbModel => res.json(dbModel))
@@ -38,7 +38,9 @@ const userFunctions = {
 
 // router.delete("/api/books/:id", bookFunctions.remove);
 
-app.get("/api/users/", userFunctions.findById);
+router.get("/api/users/", userFunctions.findById);
+
+router.get("/api/allusers/", userFunctions.findAll);
 
 // router.patch("/api/books/:id", bookFunctions.update);
 module.exports = router;

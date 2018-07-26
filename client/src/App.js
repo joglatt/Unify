@@ -7,6 +7,8 @@ import LoginForm from "./components/login-form";
 import Navbar from "./components/navbar";
 import Home from "./components/home";
 import Profile from "./components/profile";
+import AllUsers from "./components/allusers";
+
 
 class App extends Component {
   constructor() {
@@ -63,7 +65,9 @@ class App extends Component {
         />
         <Route exact path="/user/signup" render={() => <Signup />} />
 
-         <Route exact path="/user/profile" render={() => <Profile />} />
+        <Route exact path="/user/profile" render={() => <Profile />} />
+
+        <Route exact path="/allusers" render={() => <AllUsers/> } />
       </div>
     );
   }
