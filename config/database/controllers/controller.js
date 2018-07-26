@@ -38,7 +38,7 @@ const userFunctions = {
 
 // router.delete("/api/books/:id", bookFunctions.remove);
 
-router.get("/api/users/", userFunctions.findById);
+router.get("/api/users/:id", userFunctions.findById);
 
 router.get("/api/allusers/", userFunctions.findAll);
 

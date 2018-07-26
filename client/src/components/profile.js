@@ -11,8 +11,8 @@ class Profile extends Component {
       userInfo: {}
     };
   }
-  loadUser = () => {
-    api.getUser()
+  loadUser = (id) => {
+    api.getUser(id)
       .then(res =>
         this.setState({ userInfo: res.data})
       )
@@ -27,7 +27,7 @@ class Profile extends Component {
       console.log('this is the frontend info: ' + response.data.user.frontEnd);
       if (response.data.user) {
         console.log("Get User: There is a user saved in the server session: ");
-
+        this.loadUser(response.data.user._id)
         this.setState({
           loggedIn: true,
           username: response.data.user.username,
@@ -44,6 +44,8 @@ class Profile extends Component {
   
   }
   render() {
+    console.log("User Info")
+    console.log(this.state.userInfo)
     return ( 
       this.state.loggedIn && 
       <Container>
