@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default {
-// Gets all books
+
   getAllUsers: function () {
     return axios.get("/api/allusers");
   },
@@ -9,14 +9,11 @@ export default {
   getUser: function (id) {
     return axios.get("/api/users/" + id);
   },
-//   // Deletes the book with the given id
-//   deleteBook: function (id) {
-//     return axios.delete("/api/books/" + id);
-//   },
-//   // Saves a book to the database
-//   saveBook: function (bookData) {
-//     return axios.post("/api/books", bookData);
-//   },
+
+  deleteUser: function (id) {
+    return axios.delete("/api/users/" + id);
+  },
+
   patchUser: function (id, userData) {
     return axios.patch("/api/users/" + id, userData);
   },

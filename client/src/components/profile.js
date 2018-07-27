@@ -4,6 +4,7 @@ import { Container } from "./Grid";
 import api from "../api/api";
 import Input from "./Form/Input";
 import FormBtn from "./Form/FormBtn";
+import DeleteBtn from "./DeleteBtn";
 
 class Profile extends Component {
   constructor() {
@@ -15,6 +16,12 @@ class Profile extends Component {
       isUpdate: false
     };
   }
+
+  deleteUser = id => {
+    api.deleteUser(id)
+      .then(res => this.loadUser())
+      .catch(err => console.log(err));
+  };
 
   handleUpdate(isUpdate) {
     this.setState({ isUpdate: isUpdate });
@@ -116,6 +123,8 @@ class Profile extends Component {
           >
             Update Your Profile!
           </FormBtn>
+          
+          <DeleteBtn onClick={() => this.deleteUser(this.state._id)} />
         </form>
       </Container>
     );
