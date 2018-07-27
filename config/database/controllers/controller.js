@@ -36,11 +36,11 @@ const userFunctions = {
 
 // router.post("/api/books", bookFunctions.create);
 
-// router.delete("/api/books/:id", bookFunctions.remove);
+router.delete("/api/books/:id", userFunctions.remove);
 
 router.get("/api/users/:id", userFunctions.findById);
 
 router.get("/api/allusers/", userFunctions.findAll);
 
-// router.patch("/api/books/:id", bookFunctions.update);
+router.patch("/api/books/:id", userFunctions.update;
 module.exports = router;
