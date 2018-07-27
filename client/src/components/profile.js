@@ -47,6 +47,12 @@ class Profile extends Component {
         <h1> Hello !</h1>
       </Container>
     );
+
+    getUpdateform = () => (
+      <Container>
+        <div>Edit</div>
+      </Container>
+    );
   }
   render() {
     // console.log("User Info")
