@@ -21,7 +21,7 @@ class Profile extends Component {
     api.deleteUser(this.state.userInfo._id,)
       .then(res => this.loadUser())
       .catch(err => console.log(err));
-      this.logout();
+      window.location.reload();
   };
 
   handleUpdate(isUpdate) {
