@@ -9,18 +9,15 @@ const userFunctions = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  
   findById: function(req, res) {
     db.User.findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-//   create: function(req, res) {
-//     db.User.create(req.body)
-//       .then(dbModel => res.json(dbModel))
-//       .catch(err => res.status(422).json(err));
-//   },
+
   update: function(req, res) {
-    db.User.findOneAndUpdate({ username: req.params.id }, req.body)
+    db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -32,15 +29,12 @@ const userFunctions = {
   }
 };
 
-// router.get("/api/books", bookFunctions.findAll);
-
-// router.post("/api/books", bookFunctions.create);
-
-router.delete("/api/books/:id", userFunctions.remove);
+router.delete("/api/users/:id", userFunctions.remove);
 
 router.get("/api/users/:id", userFunctions.findById);
 
 router.get("/api/allusers/", userFunctions.findAll);
 
-router.patch("/api/books/:id", userFunctions.update;
+router.patch("/api/users/:id", userFunctions.update);
+
 module.exports = router;

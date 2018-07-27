@@ -8,7 +8,7 @@ export default {
 
   getUser: function (id) {
     return axios.get("/api/users/" + id);
-  }
+  },
 //   // Deletes the book with the given id
 //   deleteBook: function (id) {
 //     return axios.delete("/api/books/" + id);
@@ -17,7 +17,7 @@ export default {
 //   saveBook: function (bookData) {
 //     return axios.post("/api/books", bookData);
 //   },
-//   patchBook: function (id, bookData) {
-//     return axios.patch("/api/books/" + id, bookData);
-//   },
+  patchUser: function (id, userData) {
+    return axios.patch("/api/users/" + id, userData);
+  },
 };
