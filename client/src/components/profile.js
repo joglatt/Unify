@@ -18,9 +18,10 @@ class Profile extends Component {
   }
 
   deleteUser = id => {
-    api.deleteUser(id)
+    api.deleteUser(this.state.userInfo._id,)
       .then(res => this.loadUser())
       .catch(err => console.log(err));
+      this.logout();
   };
 
   handleUpdate(isUpdate) {
@@ -86,6 +87,7 @@ class Profile extends Component {
         <h2>{this.state.userInfo.backEnd}</h2>
         <h2>{this.state.userInfo.email}</h2>
         <button onClick={() => this.handleUpdate(true)}>Update</button>
+        <DeleteBtn onClick={() => this.deleteUser(this.state._id)} />
       </Container>
     );
 
@@ -124,7 +126,6 @@ class Profile extends Component {
             Update Your Profile!
           </FormBtn>
           
-          <DeleteBtn onClick={() => this.deleteUser(this.state._id)} />
         </form>
       </Container>
     );
