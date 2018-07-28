@@ -8,6 +8,7 @@ import Navbar from "./components/navbar";
 import Home from "./components/home";
 import Profile from "./components/profile";
 import AllUsers from "./components/allusers";
+import SearchBar from "./components/searchform.js"
 
 
 class App extends Component {
@@ -63,11 +64,13 @@ class App extends Component {
           exact path="/user/login"
           render={() => <LoginForm updateUser={this.updateUser} />}
         />
-        <Route exact path="/user/signup" render={() => <Signup />} />
+          <Route exact path="/user/signup" render={() => <Signup />} />
 
-        <Route exact path="/user/profile" render={() => <Profile />} />
+          <Route exact path="/user/profile" render={() => <Profile />} />
 
-        <Route exact path="/allusers" render={() => <AllUsers/> } />
+          <Route exact path="/allusers" render={() => <AllUsers/> } />
+
+          <Route exact path="/usersearch" render={() => <SearchBar/> } />
       </div>
     );
   }
