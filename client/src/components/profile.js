@@ -5,6 +5,10 @@ import api from "../api/api";
 import Input from "./Form/Input";
 import FormBtn from "./Form/FormBtn";
 import DeleteBtn from "./DeleteBtn";
+import './profile.css';
+import 'typeface-roboto';
+import Typography from '@material-ui/core/Typography';
+import Avatar from '@material-ui/core/Avatar';
 
 class Profile extends Component {
   constructor() {
@@ -82,11 +86,11 @@ class Profile extends Component {
   getReadOnly = () =>
     this.state.loggedIn && (
       <Container>
-        <h1> Hello {this.state.userInfo.username}!</h1>
-        <h2>{this.state.userInfo.frontEnd}</h2>
-        <h2>{this.state.userInfo.backEnd}</h2>
-        <h2>{this.state.userInfo.email}</h2>
-        <button onClick={() => this.handleUpdate(true)}>Update</button>
+         <Avatar> <h2>Hi </h2></Avatar> <Typography><h1> {this.state.userInfo.username} !</h1> </Typography>  
+        <Typography><h3>Your preferred front-end technology:</h3> <h2 className='dbInfo'>{this.state.userInfo.frontEnd}</h2></Typography>
+        <Typography><h3>Your preferred back-end technology:</h3> <h2 className='dbInfo'>{this.state.userInfo.backEnd}</h2></Typography>
+        <Typography><h3>Your email address:</h3> <h2 className='dbInfo'> {this.state.userInfo.email}</h2></Typography>
+        <button onClick={() => this.handleUpdate(true)}>Update</button><br/><br/>
         <DeleteBtn onClick={() => this.deleteUser(this.state._id)} />
       </Container>
     );

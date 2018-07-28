@@ -1,0 +1,28 @@
+button {
+    padding: 7px;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: #d2d2d2;
+}
+
+button:hover {
+    background: #7195dd;
+    border-color: #7195dd;
+    color: white;
+    cursor: pointer;
+  }
+
+.dltBtn:hover {
+    background: #e91714;
+    border-color: #e91714;
+    color: white;
+    cursor: pointer;
+}
+
+.dltBtn:hover span{
+    display: none;
+}
+
+.dltBtn:hover:after{
+    content: 'OK loser...';
+}

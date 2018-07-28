@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './container.css';
 
 class Container extends React.Component {
 
@@ -7,8 +8,10 @@ class Container extends React.Component {
         const { fluid, children } = this.props
 
         return (
+            <div className='test'>
             <div className={`container${fluid ? "-fluid" : ""}`} >
             {children}
+            </div>
             </div>
         );
     }
