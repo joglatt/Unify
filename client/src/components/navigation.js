@@ -10,21 +10,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-const styles = {
-    root: {
-        flexGrow: 1,
-    },
-    flex: {
-        flexGrow: 1,
-    },
-    menuButton: {
-        marginLeft: -12,
-        marginRight: 20,
-    },
-};
 
-function ButtonAppBar(props) {
-    const { classes } = props;
+class SimpleMenu extends React.Component {
     state = {
         anchorEl: null,
     };
@@ -37,42 +24,31 @@ function ButtonAppBar(props) {
         this.setState({ anchorEl: null });
     };
 
-    const { anchorEl } = this.state;
-    
-    return (
+    render() {
+        const { anchorEl } = this.state;
 
-        <div className={classes.root}>
-            <AppBar position="static">
-                <Toolbar>
-                    <Button
-                        aria-owns={anchorEl ? 'simple-menu' : null}
-                        aria-haspopup="true"
-                        onClick={this.handleClick}
-                    >
-                        Open Menu
-                    </Button>
-                    <Menu
-                        id="simple-menu"
-                        anchorEl={anchorEl}
-                        open={Boolean(anchorEl)}
-                        onClose={this.handleClose}
-                    >
-                        <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                        <MenuItem onClick={this.handleClose}>My account</MenuItem>
-                        <MenuItem onClick={this.handleClose}>Logout</MenuItem>
-                    </Menu>
-                    <Typography variant="title" color="inherit" className={classes.flex}>
-                        Unify
-                    </Typography>
-                    <Button color="inherit">Login</Button>
-                </Toolbar>
-            </AppBar>
-        </div>
-    );
+        return (
+            <div>
+                <Button
+                    aria-owns={anchorEl ? 'simple-menu' : null}
+                    aria-haspopup="true"
+                    onClick={this.handleClick}
+                >
+                    Open Menu
+                </Button>
+                <Menu
+                    id="simple-menu"
+                    anchorEl={anchorEl}
+                    open={Boolean(anchorEl)}
+                    onClose={this.handleClose}
+                >
+                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+                    <MenuItem onClick={this.handleClose}>My account</MenuItem>
+                    <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+                </Menu>
+            </div>
+        );
+    }
 }
 
-ButtonAppBar.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(ButtonAppBar);
+export default SimpleMenu;
