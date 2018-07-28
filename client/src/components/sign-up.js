@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import Button from '@material-ui/core/Button';
 class Signup extends Component {
   constructor() {
     super();
@@ -147,13 +148,13 @@ class Signup extends Component {
             </div>
             <div>
               <div />
-              <button
+              <Button
                 className="btn btn-primary col-1 col-mr-auto"
                 onClick={this.handleSubmit}
                 type="submit"
               >
                 Sign up
-              </button>
+              </Button>
             </div>
           </form>
         </div>
