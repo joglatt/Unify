@@ -6,6 +6,7 @@ const dbConnection = require('./config/database')
 const MongoStore = require('connect-mongo')(session)
 const passport = require('./config/passport');
 const app = express()
+const controller = require("./config/database/controllers/controller")
 const PORT = process.env.PORT || 3001;
 const controller = require("./config/database/controllers/controller.js")
 
@@ -18,6 +19,9 @@ app.use(
 	})
 )
 app.use(bodyParser.json())
+
+//Adding routes for API
+app.use(controller);
 
 // Sessions
 app.use(

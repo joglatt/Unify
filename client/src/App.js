@@ -7,6 +7,9 @@ import LoginForm from "./components/login-form";
 import Navbar from "./components/navbar";
 import Home from "./components/home";
 import Profile from "./components/profile";
+import AllUsers from "./components/allusers";
+import SearchBar from "./components/searchform.js"
+
 
 class App extends Component {
   constructor() {
@@ -55,14 +58,19 @@ class App extends Component {
       <div className="App">
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         {/* Routes to different components */}
+        <Route exact path="/" component={Home} />
         <Route exact path="/user/home" component={Home} />
         <Route
           exact path="/user/login"
           render={() => <LoginForm updateUser={this.updateUser} />}
         />
-        <Route exact path="/user/signup" render={() => <Signup />} />
+          <Route exact path="/user/signup" render={() => <Signup />} />
 
-         <Route exact path="/user/profile" render={() => <Profile />} />
+          <Route exact path="/user/profile" render={() => <Profile />} />
+
+          <Route exact path="/allusers" render={() => <AllUsers/> } />
+
+          <Route exact path="/usersearch" render={() => <SearchBar/> } />
       </div>
     );
   }

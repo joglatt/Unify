@@ -81,4 +81,14 @@ module.exports = function(app){
       res.redirect("/user/login")
     }
   });
+
+  app.get("/allusers", (req, res) => {
+    if (req.user) {
+      req.logout();
+      res.status(200).json({location:'/allusers'})
+    } else {
+      res.send({ msg: "no users results" });
+    }
+  });
+
 }

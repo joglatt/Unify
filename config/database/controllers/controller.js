@@ -3,27 +3,25 @@ const router = require("express").Router();
 const db = require("../models");
 
 const userFunctions = {
-//   findAll: function(req, res) {
-//     db.User.find(req.query)
-//       .sort({ date: -1 })
-//       .then(dbModel => res.json(dbModel))
-//       .catch(err => res.status(422).json(err));
-//   },
+  findAll: function(req, res) {
+    db.User.find(req.query)
+      .sort({ date: -1 })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  
   findById: function(req, res) {
     db.User.findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-//   create: function(req, res) {
-//     db.User.create(req.body)
-//       .then(dbModel => res.json(dbModel))
-//       .catch(err => res.status(422).json(err));
-//   },
+
   update: function(req, res) {
-    db.User.findOneAndUpdate({ username: req.params.id }, req.body)
+    db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  
   remove: function(req, res) {
     db.User.findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
@@ -32,13 +30,15 @@ const userFunctions = {
   }
 };
 
-// router.get("/api/books", bookFunctions.findAll);
+router.delete("/api/users/:id", userFunctions.remove);
 
-// router.post("/api/books", bookFunctions.create);
+router.get("/api/users/:id", userFunctions.findById);
 
-// router.delete("/api/books/:id", bookFunctions.remove);
+router.get("/api/allusers/", userFunctions.findAll);
 
 router.get("/api/users/", userFunctions.findById);
+=======
+router.patch("/api/users/:id", userFunctions.update);
 
-// router.patch("/api/books/:id", bookFunctions.update);
+
 module.exports = router;
