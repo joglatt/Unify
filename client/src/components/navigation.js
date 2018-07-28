@@ -9,9 +9,36 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import {Link} from "react-router-dom";
+import axios from "axios";
 
 
-class SimpleMenu extends React.Component {
+class Navigation extends React.Component {
+    constructor() {
+        super();
+        this.logout = this.logout.bind(this);
+    }
+
+    logout(event) {
+        event.preventDefault();
+        console.log("logging out");
+        axios
+            .get("/user/logout")
+            .then(response => {
+                debugger;
+                if (response.status === 200) {
+                    this.props.updateUser({
+                        loggedIn: false,
+                        username: null
+                    });
+                    window.location=response.data.location
+                }
+            })
+            .catch(error => {
+                console.log("Logout error");
+            });
+    }
+
     state = {
         anchorEl: null,
     };
@@ -29,6 +56,8 @@ class SimpleMenu extends React.Component {
 
         return (
             <div>
+                <AppBar/>
+                <Toolbar/>
                 <Button
                     aria-owns={anchorEl ? 'simple-menu' : null}
                     aria-haspopup="true"
@@ -42,13 +71,27 @@ class SimpleMenu extends React.Component {
                     open={Boolean(anchorEl)}
                     onClose={this.handleClose}
                 >
-                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={this.handleClose}>My account</MenuItem>
+                    <MenuItem onClick={this.handleClose}><Link to="/user/home" className="btn btn-link text-secondary"><span className="text-secondary">Home</span></Link></MenuItem>
+                    <MenuItem onClick={this.handleClose}><Link to="/allusers" className="btn btn-link text-secondary" onClick={this.logout}><span className="text-secondary">Search</span></Link></MenuItem>
+                    <MenuItem onClick={this.handleClose}><Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>Logout</Link></MenuItem>
+                    <MenuItem onClick={this.handleClose}><Link to="/user/login" className="btn btn-link text-secondary"><span className="text-secondary">login</span></Link></MenuItem>
+                    <MenuItem onClick={this.handleClose}><Link to="/user/signup" className="btn btn-link"><span className="text-secondary">sign up</span></Link></MenuItem>
+                    <MenuItem onClick={this.handleClose}><Link to="/allusers" className="btn btn-link text-secondary" onClick={this.logout}><span className="text-secondary">Search</span></Link></MenuItem>
                     <MenuItem onClick={this.handleClose}>Logout</MenuItem>
                 </Menu>
+                <Typography variant="title" color="inherit">
+                    Unify
+                </Typography>
+                <Toolbar/>
+                <AppBar/>
             </div>
+
         );
     }
 }
 
-export default SimpleMenu;
+Navigation.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default Navigation;
