@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import { DropDown } from "./Form";
 class Signup extends Component {
   constructor() {
     super();
@@ -10,7 +11,8 @@ class Signup extends Component {
       email: "",
       frontEnd: "",
       backEnd: "",
-      location: "",
+      city: "",
+      usState: "",
       confirmPassword: "",
       redirectTo: null
     };
@@ -35,7 +37,9 @@ class Signup extends Component {
         email: this.state.email,
         frontEnd: this.state.frontEnd,
         backEnd: this.state.backEnd,
-        location: this.state.location
+        city: this.state.city,
+        usState: this.state.usState
+
       })
       .then(response => {
         console.log(response);
@@ -97,7 +101,7 @@ class Signup extends Component {
                 />
               </div>
               <div>
-                <label htmlFor="password">Email Address: </label>
+                <label htmlFor="Email">Email Address: </label>
               </div>
               <div>
                 <input
@@ -109,7 +113,7 @@ class Signup extends Component {
                 />
               </div>
               <div>
-                <label htmlFor="password">Front End Technology: </label>
+                <label htmlFor="Frontend">Front End Technology: </label>
               </div>
               <div>
                 <input
@@ -121,7 +125,7 @@ class Signup extends Component {
                 />
               </div>
               <div>
-                <label htmlFor="password">Back End Technology: </label>
+                <label htmlFor="Backend">Back End Technology: </label>
               </div>
               <div>
                 <input
@@ -132,15 +136,27 @@ class Signup extends Component {
                   onChange={this.handleChange}
                 />
               </div>
+          
               <div>
-                <label htmlFor="password">Location: </label>
+                <label htmlFor="City">City: </label>
               </div>
               <div>
                 <input
-                  placeholder="Location"
-                  type="location"
-                  name="location"
-                  value={this.state.location}
+                  placeholder="City"
+                  type="city"
+                  name="city"
+                  value={this.state.city}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div>
+                <label htmlFor="State">State: </label>
+              </div>
+              <div>
+                <DropDown
+                  type="usState"
+                  name="usState"
+                  value={this.state.usState}
                   onChange={this.handleChange}
                 />
               </div>

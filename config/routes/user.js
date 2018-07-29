@@ -2,14 +2,20 @@ const User = require("../database/models/user");
 const passport = require("../passport");
 // const controller =require( "../database/controllers/controller.js");
 
-
-
-module.exports = function(app){
-
+module.exports = function(app) {
   app.post("/user", (req, res) => {
     console.log("user signup");
-
-    const { username, password, email, frontEnd, backEnd, location } = req.body;
+    const {
+      username,
+      password,
+      email,
+      frontEnd,
+      backEnd,
+      address,
+      city,
+      usState,
+      zip
+    } = req.body;
     // ADD VALIDATION
     User.findOne({ username: username }, (err, user) => {
       if (err) {
@@ -25,7 +31,10 @@ module.exports = function(app){
           email: email,
           frontEnd: frontEnd,
           backEnd: backEnd,
-          location: location
+          address: address,
+          city: city,
+          usState: usState,
+          zip: zip
         });
         newUser.save((err, savedUser) => {
           if (err) return res.json(err);
@@ -66,29 +75,28 @@ module.exports = function(app){
     if (req.user) {
       req.logout();
       // res.send({ msg: "logging out" });
-      res.status(200).json({location:'/user/home'})
+      res.status(200).json({ location: "/user/home" });
     } else {
       res.send({ msg: "no user to log out" });
     }
   });
 
   app.get("/user/profile", (req, res, next) => {
-    console.log("profile page")
+    console.log("profile page");
     console.log(req.user);
     if (req.user) {
       res.json({ user: req.user });
     } else {
-      res.redirect("/user/login")
+      res.redirect("/user/login");
     }
   });
 
   app.get("/allusers", (req, res) => {
     if (req.user) {
       req.logout();
-      res.status(200).json({location:'/allusers'})
+      res.status(200).json({ location: "/allusers" });
     } else {
       res.send({ msg: "no users results" });
     }
   });
-
-}
+};
