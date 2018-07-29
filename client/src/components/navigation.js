@@ -12,6 +12,18 @@ import MenuItem from '@material-ui/core/MenuItem';
 import {Link} from "react-router-dom";
 import axios from "axios";
 
+const styles = {
+    root: {
+        flexGrow: 1,
+    },
+    flex: {
+        flexGrow: 1,
+    },
+    Button: {
+        marginLeft: -12,
+        marginRight: 20,
+    },
+};
 
 class Navigation extends React.Component {
     constructor() {
@@ -71,12 +83,13 @@ class Navigation extends React.Component {
                     open={Boolean(anchorEl)}
                     onClose={this.handleClose}
                 >
-                    <MenuItem onClick={this.handleClose}><Link to="/user/home" className="btn btn-link text-secondary"><span className="text-secondary">Home</span></Link></MenuItem>
-                    <MenuItem onClick={this.handleClose}><Link to="/allusers" className="btn btn-link text-secondary" onClick={this.logout}><span className="text-secondary">Search</span></Link></MenuItem>
-                    <MenuItem onClick={this.handleClose}><Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>Logout</Link></MenuItem>
-                    <MenuItem onClick={this.handleClose}><Link to="/user/login" className="btn btn-link text-secondary"><span className="text-secondary">login</span></Link></MenuItem>
-                    <MenuItem onClick={this.handleClose}><Link to="/user/signup" className="btn btn-link"><span className="text-secondary">sign up</span></Link></MenuItem>
-                    <MenuItem onClick={this.handleClose}><Link to="/allusers" className="btn btn-link text-secondary" onClick={this.logout}><span className="text-secondary">Search</span></Link></MenuItem>
+
+                    <MenuItem onClick={this.handleClose} component={Link} to={"/user/home"}>Home</MenuItem>
+                    <MenuItem onClick={this.handleClose} component={Link} to={"/allusers"}>Search</MenuItem>
+                    <MenuItem onClick={this.handleClose} component={Link} to={"#"}>Logout</MenuItem>
+                    <MenuItem onClick={this.handleClose} component={Link} to={"/user/login"}>Login</MenuItem>
+                    <MenuItem onClick={this.handleClose} component={Link} to={"/user/signup"}>Sign Up</MenuItem>
+                    <MenuItem onClick={this.handleClose} component={Link} to={"/allusers"}>Search</MenuItem>
                     <MenuItem onClick={this.handleClose}>Logout</MenuItem>
                 </Menu>
                 <Typography variant="title" color="inherit">
@@ -94,4 +107,4 @@ Navigation.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default Navigation;
+export default withStyles(styles)(Navigation);
