@@ -9,6 +9,9 @@ import './profile.css';
 import 'typeface-roboto';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
+import BuildIcon from '@material-ui/icons/Build';
+import SaveIcon from '@material-ui/icons/Save';
+import PersonIcon from '@material-ui/icons/Person';
 
 class Profile extends Component {
   constructor() {
@@ -86,12 +89,13 @@ class Profile extends Component {
   getReadOnly = () =>
     this.state.loggedIn && (
       <Container>
-         <Avatar> <h2>Hi </h2></Avatar> <Typography><h1> {this.state.userInfo.username} !</h1> </Typography>  
+         <Avatar> <h2>Hi </h2></Avatar> 
+         <Typography><h1> {this.state.userInfo.username} ! <PersonIcon/></h1> </Typography>  
          <hr/>
         <Typography><h3>Your preferred frontend technology:</h3> <h2 className='dbInfo'>{this.state.userInfo.frontEnd}</h2></Typography>
         <Typography><h3>Your preferred backend technology:</h3> <h2 className='dbInfo'>{this.state.userInfo.backEnd}</h2></Typography>
         <Typography><h3>Your email address:</h3> <h2 className='dbInfo'> {this.state.userInfo.email}</h2></Typography>
-        <button onClick={() => this.handleUpdate(true)}>Update</button><br/><br/>
+        <button onClick={() => this.handleUpdate(true)}>Update<BuildIcon/></button><br/><br/>
         <DeleteBtn onClick={() => this.deleteUser(this.state._id)} />
       </Container>
     );
@@ -138,7 +142,7 @@ class Profile extends Component {
             disabled={!this.state.username}
             onClick={this.handleFormSubmit}
           >
-            Keep these changes!
+            Keep these changes! <SaveIcon/>
           </FormBtn>
           
         </form>
