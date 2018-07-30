@@ -8,7 +8,7 @@ class FormBtn extends React.Component {
     const { children, disabled, onClick } = this.props
 
     return (
-      <button onClick={onClick} disabled={disabled}  style={{ float: "right", marginBottom: 10 }} className="btn btn-success">
+      <button onClick={onClick} disabled={disabled}  style={{ marginBottom: 10 }} className="btn btn-success">
         {children}
       </button>
     );

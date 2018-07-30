@@ -87,8 +87,9 @@ class Profile extends Component {
     this.state.loggedIn && (
       <Container>
          <Avatar> <h2>Hi </h2></Avatar> <Typography><h1> {this.state.userInfo.username} !</h1> </Typography>  
-        <Typography><h3>Your preferred front-end technology:</h3> <h2 className='dbInfo'>{this.state.userInfo.frontEnd}</h2></Typography>
-        <Typography><h3>Your preferred back-end technology:</h3> <h2 className='dbInfo'>{this.state.userInfo.backEnd}</h2></Typography>
+         <hr/>
+        <Typography><h3>Your preferred frontend technology:</h3> <h2 className='dbInfo'>{this.state.userInfo.frontEnd}</h2></Typography>
+        <Typography><h3>Your preferred backend technology:</h3> <h2 className='dbInfo'>{this.state.userInfo.backEnd}</h2></Typography>
         <Typography><h3>Your email address:</h3> <h2 className='dbInfo'> {this.state.userInfo.email}</h2></Typography>
         <button onClick={() => this.handleUpdate(true)}>Update</button><br/><br/>
         <DeleteBtn onClick={() => this.deleteUser(this.state._id)} />
@@ -98,36 +99,46 @@ class Profile extends Component {
   getUpdateform = () =>
     this.state.loggedIn && (
       <Container>
+        <Typography><h2>Hey {this.state.userInfo.username}, update your profile!</h2></Typography>
+        <hr/>
         <form>
+          <Typography><h2>Your username:</h2></Typography>
           <Input
             value={this.state.userInfo.username}
             onChange={this.handleInputChange}
             name="username"
             placeholder="Username (required)"
           />
+          <br/>
+          <Typography><h2>Your preferred frontend technology:</h2></Typography>
           <Input
             value={this.state.userInfo.backEnd}
             onChange={this.handleInputChange}
             name="backEnd"
             placeholder="backEnd (required)"
           />
+          <br />
+          <Typography><h2>Your preferred backend technology:</h2></Typography>
           <Input
             value={this.state.userInfo.frontEnd}
             onChange={this.handleInputChange}
             name="frontEnd"
             placeholder="frontEnd (required)"
           />
+          <br />
+          <Typography><h2>Your email address:</h2></Typography>
           <Input
             value={this.state.userInfo.email}
             onChange={this.handleInputChange}
             name="email"
             placeholder="email (required)"
           />
+          <br /><br />
           <FormBtn
             disabled={!this.state.username}
             onClick={this.handleFormSubmit}
           >
-            Update Your Profile!
+            Keep these changes!
           </FormBtn>
           
         </form>

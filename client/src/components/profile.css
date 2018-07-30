@@ -1,5 +1,33 @@
+body {
+    background: linear-gradient(to right, #ffffff, #d7e1f5);
+}
+
 .dbInfo  {
     border: 1.5px solid #1544a3;
     padding: 13.5px;
     border-radius: 20px;
+}
+
+.test {
+    width: 100%;
+    padding: 30px;
+    margin-right: 30px;
+}
+
+input {
+    border: 1.5px solid #1544a3;
+    padding: 5px;
+    border-radius: 5px;
+    height: 20px;
+    font-weight: bolder;
+}
+
+input:focus{
+    background-color: #d8e2f9;
+}
+
+form {
+    width: 100%;
+    padding: 30px;
+    margin-right: 30px;
 }
