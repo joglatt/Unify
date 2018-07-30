@@ -87,6 +87,7 @@ class Signup extends Component {
                 />
               </div>
             </div>
+            <br />
             <div className="form-group">
               <div>
                 <label htmlFor="password">Password: </label>
@@ -100,6 +101,7 @@ class Signup extends Component {
                   onChange={this.handleChange}
                 />
               </div>
+              <br />
               <div>
                 <label htmlFor="Email">Email Address: </label>
               </div>
@@ -112,6 +114,7 @@ class Signup extends Component {
                   onChange={this.handleChange}
                 />
               </div>
+              <br />
               <div>
                 <label htmlFor="Frontend">Front End Technology: </label>
               </div>
@@ -124,6 +127,7 @@ class Signup extends Component {
                   onChange={this.handleChange}
                 />
               </div>
+              <br />
               <div>
                 <label htmlFor="Backend">Back End Technology: </label>
               </div>
@@ -136,7 +140,7 @@ class Signup extends Component {
                   onChange={this.handleChange}
                 />
               </div>
-          
+          <br />
               <div>
                 <label htmlFor="City">City: </label>
               </div>
@@ -149,6 +153,7 @@ class Signup extends Component {
                   onChange={this.handleChange}
                 />
               </div>
+              <br />
               <div>
                 <label htmlFor="State">State: </label>
               </div>
@@ -163,6 +168,7 @@ class Signup extends Component {
             </div>
             <div>
               <div />
+              <br />
               <button
                 className="btn btn-primary col-1 col-mr-auto"
                 onClick={this.handleSubmit}

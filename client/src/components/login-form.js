@@ -74,6 +74,7 @@ class LoginForm extends Component {
                                 />
                             </div>
                         </div>
+                        <br />
                         <div className="form-group">
                             <div className="col-1 col-ml-auto">
                                 <label className="form-label" htmlFor="password">Password: </label>
@@ -88,6 +89,7 @@ class LoginForm extends Component {
                                 />
                             </div>
                         </div>
+                        <br />
                         <div className="form-group ">
                             <div className="col-7"></div>
                             <button
