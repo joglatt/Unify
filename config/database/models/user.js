@@ -11,7 +11,9 @@ const userSchema = new Schema({
   frontEnd: { type: String, unique: false, required: true },
   backEnd: { type: String, unique: false, required: true },
   city: { type: String, unique: false, required: true },
-  usState: { type: String, unique: false, required: false }
+  usState: { type: String, unique: false, required: false },
+  latitude: { type: Number, unique: false, required: false },
+  longitude: { type: Number, unique: false, required: false }
 });
 
 // Define schema methods

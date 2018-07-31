@@ -1,7 +1,15 @@
 const User = require("../database/models/user");
 const passport = require("../passport");
-// const controller =require( "../database/controllers/controller.js");
+const NodeGeocoder = require("node-geocoder");
+const options = {
+  provider: "google",
 
+  // Optional depending on the providers
+  httpAdapter: "https", // Default
+  apiKey: "AIzaSyAwEesb05yvEYtwgrd3I2slK-8ba6E7u9o", // for Mapquest, OpenCage, Google Premier
+  formatter: null // 'gpx', 'string', ...
+};
+var geocoder = NodeGeocoder(options);
 module.exports = function(app) {
   app.post("/user", (req, res) => {
     console.log("user signup");
@@ -11,10 +19,8 @@ module.exports = function(app) {
       email,
       frontEnd,
       backEnd,
-      address,
       city,
-      usState,
-      zip
+      usState
     } = req.body;
     // ADD VALIDATION
     User.findOne({ username: username }, (err, user) => {
@@ -25,21 +31,29 @@ module.exports = function(app) {
           error: `Sorry, already a user with the username: ${username}`
         });
       } else {
-        const newUser = new User({
-          username: username,
-          password: password,
-          email: email,
-          frontEnd: frontEnd,
-          backEnd: backEnd,
-          address: address,
-          city: city,
-          usState: usState,
-          zip: zip
-        });
-        newUser.save((err, savedUser) => {
-          if (err) return res.json(err);
-          res.json(savedUser);
-        });
+        geocoder
+          .geocode(` ${city} ${usState}`)
+          .then(function(res) {
+            const newUser = new User({
+              username: username,
+              password: password,
+              email: email,
+              frontEnd: frontEnd,
+              backEnd: backEnd,
+              city: city,
+              usState: usState,
+              longitude: res[0].longitude,
+              latitude: res[0].latitude
+            });
+            newUser.save((err, savedUser) => {
+              if (err) return res.json(err);
+              console.log(savedUser);
+              // res.json(savedUser);
+            });
+          })
+          .catch(function(err) {
+            console.log(err);
+          });
       }
     });
   });
