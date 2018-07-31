@@ -60,14 +60,15 @@ class App extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/user/home" component={Home} />
         <Route
-          exact path="/user/login"
+          exact
+          path="/user/login"
           render={() => <LoginForm updateUser={this.updateUser} />}
         />
-          <Route exact path="/user/signup" render={() => <Signup />} />
+        <Route exact path="/user/signup" render={() => <Signup />} />
 
-          <Route exact path="/user/profile" render={() => <Profile />} />
+        <Route exact path="/user/profile" render={() => <Profile />} />
 
-          <Route exact path="/allusers" render={() => <AllUsers/> } />
+        <Route exact path="/allusers" render={() => <AllUsers />} />
 
           <Route exact path="/usersearch" render={() => <SearchBar/> } />
 
