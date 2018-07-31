@@ -52,39 +52,55 @@ class Navbar extends Component {
     // const loggedIn = this.props.loggedIn;
     return (
       <div className={classes.root}>
-        <AppBar>
-          <Toolbar>
-            {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-              <MenuIcon />
-            </IconButton> */}
-            <Typography
-              variant="title"
-              color="inherit"
-              className={classes.flex}
-            >
-              Unify
-            </Typography>
-            <Link
-              onClick={this.logout}
-              to="#"
-              className="btn btn-link text-secondary"
-            >
-              <Button className="text-secondary" color="inherit">
-                Account
-              </Button>
-            </Link>
-            <Link to="/user/login" className="btn btn-link text-secondary">
-              <Button className="text-secondary" color="inherit">
-                Login
-              </Button>
-            </Link>
-            <Link to="/user/signup" className="btn btn-link text-secondary">
-              <Button className="text-secondary" color="inherit">
-                Register
-              </Button>
-            </Link>
-          </Toolbar>
-        </AppBar>
+        {loggedIn ? (
+          <AppBar>
+            <Toolbar>
+              <Typography
+                variant="title"
+                color="inherit"
+                className={classes.flex}
+              >
+                Unify
+              </Typography>
+              <Link
+                onClick={this.logout}
+                to="#"
+                className="btn btn-link text-secondary"
+              >
+                <Button className="text-secondary" color="inherit">
+                  Log out
+                </Button>
+              </Link>
+              <Link to="/user/profile" className="btn btn-link text-secondary">
+                <Button className="text-secondary" color="inherit">
+                  Account
+                </Button>
+              </Link>
+            </Toolbar>
+          </AppBar>
+        ) : (
+          <AppBar>
+            <Toolbar>
+              <Typography
+                variant="title"
+                color="inherit"
+                className={classes.flex}
+              >
+                Unify
+              </Typography>
+              <Link to="/user/login" className="btn btn-link text-secondary">
+                <Button className="text-secondary" color="inherit">
+                  Login
+                </Button>
+              </Link>
+              <Link to="/user/signup" className="btn btn-link text-secondary">
+                <Button className="text-secondary" color="inherit">
+                  Register
+                </Button>
+              </Link>
+            </Toolbar>
+          </AppBar>
+        )}
       </div>
     );
   }
