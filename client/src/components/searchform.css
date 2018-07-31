@@ -1,0 +1,13 @@
+.form-input {
+    margin-top: 40Px;
+    margin-bottom: 20px;
+    border: 1.5px solid #1544a3;
+    padding: 13.5px;
+    border-radius: 20px;
+}
+.btn  {
+    border: 1.5px solid #1544a3;
+    padding: 10px;
+    border-radius: 20px;
+    width: 200px;
+}
