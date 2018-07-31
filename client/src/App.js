@@ -9,7 +9,6 @@ import Home from "./components/home";
 import Profile from "./components/profile";
 import AllUsers from "./components/allusers";
 import SearchBar from "./components/searchform.js"
-import Navigation from "./components/navigation.js";
 
 class App extends Component {
   constructor() {
@@ -72,7 +71,6 @@ class App extends Component {
 
           <Route exact path="/usersearch" render={() => <SearchBar/> } />
 
-          <Route exact path="/navigation" render={() => <Navigation/> } />
       </div>
     );
   }
