@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import 'typeface-roboto';
+import Typography from '@material-ui/core/Typography';
 
 class LoginForm extends Component {
     constructor() {
@@ -57,11 +59,11 @@ class LoginForm extends Component {
         } else {
             return (
                 <div>
-                    <h4>Login</h4>
+                   <Typography> <h4>Login</h4> </Typography>
                     <form className="form-horizontal">
                         <div className="form-group">
                             <div className="col-1 col-ml-auto">
-                                <label className="form-label" htmlFor="username">Username</label>
+                               <Typography> <label className="form-label" htmlFor="username">Username</label></Typography>
                             </div>
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"
@@ -77,7 +79,7 @@ class LoginForm extends Component {
                         <br />
                         <div className="form-group">
                             <div className="col-1 col-ml-auto">
-                                <label className="form-label" htmlFor="password">Password: </label>
+                            <Typography><label className="form-label" htmlFor="password">Password: </label></Typography>
                             </div>
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"

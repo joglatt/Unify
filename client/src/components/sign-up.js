@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import { DropDown } from "./Form";
+import 'typeface-roboto';
+import Typography from '@material-ui/core/Typography';
+
 class Signup extends Component {
   constructor() {
     super();
@@ -69,11 +72,11 @@ class Signup extends Component {
     } else {
       return (
         <div className="SignupForm">
-          <h4>Sign up</h4>
+          <Typography><h4>Sign up</h4></Typography>
           <form>
             <div>
               <div>
-                <label htmlFor="username">Username</label>
+              <Typography><label htmlFor="username">Username</label></Typography>
               </div>
               <div>
                 <input
@@ -90,7 +93,7 @@ class Signup extends Component {
             <br />
             <div className="form-group">
               <div>
-                <label htmlFor="password">Password: </label>
+              <Typography><label htmlFor="password">Password: </label></Typography>
               </div>
               <div>
                 <input
@@ -103,7 +106,7 @@ class Signup extends Component {
               </div>
               <br />
               <div>
-                <label htmlFor="Email">Email Address: </label>
+              <Typography><label htmlFor="Email">Email Address: </label></Typography>
               </div>
               <div>
                 <input
@@ -116,7 +119,7 @@ class Signup extends Component {
               </div>
               <br />
               <div>
-                <label htmlFor="Frontend">Front End Technology: </label>
+              <Typography><label htmlFor="Frontend">Front End Technology: </label></Typography>
               </div>
               <div>
                 <input
@@ -129,7 +132,7 @@ class Signup extends Component {
               </div>
               <br />
               <div>
-                <label htmlFor="Backend">Back End Technology: </label>
+              <Typography><label htmlFor="Backend">Back End Technology: </label></Typography>
               </div>
               <div>
                 <input
@@ -142,7 +145,7 @@ class Signup extends Component {
               </div>
           <br />
               <div>
-                <label htmlFor="City">City: </label>
+              <Typography><label htmlFor="City">City: </label></Typography>
               </div>
               <div>
                 <input
@@ -155,7 +158,7 @@ class Signup extends Component {
               </div>
               <br />
               <div>
-                <label htmlFor="State">State: </label>
+              <Typography><label htmlFor="State">State: </label></Typography>
               </div>
               <div>
                 <DropDown
