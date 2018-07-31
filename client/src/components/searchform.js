@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-
-
-
+import PropTypes from 'prop-types';
+import { DialogTitle,withMobileDialog,DialogContent,DialogContentText, Toolbar, Typography, Button, Dialog, DialogActions, }from '@material-ui/core/';
+import './searchform.css' 
+import { Link } from "react-router-dom";
 
 class SearchBar extends Component {
     constructor() {
@@ -82,8 +83,9 @@ class SearchBar extends Component {
                     </select>
                  </label>
                  <div>
-                    <button
+                 <button
                     className="btn btn-primary col-1 col-mr-auto"
+                    
                     onClick={this.handleSubmit}
                     type="submit"
                     >
