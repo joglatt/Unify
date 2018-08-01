@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import { DropDown } from "./Form";
-import 'typeface-roboto';
-import Typography from '@material-ui/core/Typography';
+import "typeface-roboto";
+import Typography from "@material-ui/core/Typography";
 
 class Signup extends Component {
   constructor() {
@@ -15,7 +15,7 @@ class Signup extends Component {
       frontEnd: "",
       backEnd: "",
       city: "",
-      usState: "",
+      usState: "AL",
       confirmPassword: "",
       redirectTo: null
     };
@@ -42,26 +42,20 @@ class Signup extends Component {
         backEnd: this.state.backEnd,
         city: this.state.city,
         usState: this.state.usState
-
       })
       .then(response => {
         console.log(response);
-        this.setState({
-          //redirect to login page
-          redirectTo: "/user/login"
-        });
-        if (!response.data.errmsg) {
-          console.log("successful signup");
+        if (response.status === 200) {
           this.setState({
             //redirect to login page
             redirectTo: "/user/login"
           });
-        } else {
-          console.log("username already taken");
+          console.log(this.state.redirectTo);
+          alert("successful signup");
         }
       })
       .catch(error => {
-        console.log("signup error: ");
+        alert("signup error: ");
         console.log(error);
       });
   }
@@ -72,11 +66,15 @@ class Signup extends Component {
     } else {
       return (
         <div className="SignupForm">
-          <Typography><h4>Sign up</h4></Typography>
+          <Typography>
+            <h4>Sign up</h4>
+          </Typography>
           <form>
             <div>
               <div>
-              <Typography><label htmlFor="username">Username</label></Typography>
+                <Typography>
+                  <label htmlFor="username">Username</label>
+                </Typography>
               </div>
               <div>
                 <input
@@ -93,7 +91,9 @@ class Signup extends Component {
             <br />
             <div className="form-group">
               <div>
-              <Typography><label htmlFor="password">Password: </label></Typography>
+                <Typography>
+                  <label htmlFor="password">Password: </label>
+                </Typography>
               </div>
               <div>
                 <input
@@ -106,7 +106,9 @@ class Signup extends Component {
               </div>
               <br />
               <div>
-              <Typography><label htmlFor="Email">Email Address: </label></Typography>
+                <Typography>
+                  <label htmlFor="Email">Email Address: </label>
+                </Typography>
               </div>
               <div>
                 <input
@@ -119,7 +121,9 @@ class Signup extends Component {
               </div>
               <br />
               <div>
-              <Typography><label htmlFor="Frontend">Front End Technology: </label></Typography>
+                <Typography>
+                  <label htmlFor="Frontend">Front End Technology: </label>
+                </Typography>
               </div>
               <div>
                 <input
@@ -132,7 +136,9 @@ class Signup extends Component {
               </div>
               <br />
               <div>
-              <Typography><label htmlFor="Backend">Back End Technology: </label></Typography>
+                <Typography>
+                  <label htmlFor="Backend">Back End Technology: </label>
+                </Typography>
               </div>
               <div>
                 <input
@@ -143,9 +149,11 @@ class Signup extends Component {
                   onChange={this.handleChange}
                 />
               </div>
-          <br />
+              <br />
               <div>
-              <Typography><label htmlFor="City">City: </label></Typography>
+                <Typography>
+                  <label htmlFor="City">City: </label>
+                </Typography>
               </div>
               <div>
                 <input
@@ -158,7 +166,9 @@ class Signup extends Component {
               </div>
               <br />
               <div>
-              <Typography><label htmlFor="State">State: </label></Typography>
+                <Typography>
+                  <label htmlFor="State">State: </label>
+                </Typography>
               </div>
               <div>
                 <DropDown
