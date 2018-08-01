@@ -19,10 +19,10 @@ button:hover {
     cursor: pointer;
 }
 
-.dltBtn:hover span{
+/* .dltBtn:hover span{
     display: none;
 }
 
 .dltBtn:hover:after{
     content: 'OK loser...';
-}
+} */
