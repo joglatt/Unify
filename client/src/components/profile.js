@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
-import { Container } from "./Grid";
+// import { Container } from "./Grid";
 import api from "../api/api";
 import Input from "./Form/Input";
 import FormBtn from "./Form/FormBtn";
@@ -12,6 +12,7 @@ import Avatar from '@material-ui/core/Avatar';
 import BuildIcon from '@material-ui/icons/Build';
 import SaveIcon from '@material-ui/icons/Save';
 import PersonIcon from '@material-ui/icons/Person';
+import Grid from '@material-ui/core/Grid';
 
 class Profile extends Component {
   constructor() {
@@ -88,7 +89,7 @@ class Profile extends Component {
 
   getReadOnly = () =>
     this.state.loggedIn && (
-      <Container>
+      <Grid className='profGrid'>
          <Avatar> <h2>Hi </h2></Avatar> 
          <Typography><h1> {this.state.userInfo.username} ! <PersonIcon/></h1> </Typography>  
          <hr/>
@@ -100,12 +101,12 @@ class Profile extends Component {
         <h2 className='dbInfo'> {this.state.userInfo.email}</h2></Typography>
         <button onClick={() => this.handleUpdate(true)}>Update<BuildIcon/></button><br/><br/>
         <DeleteBtn onClick={() => this.deleteUser(this.state._id)} />
-      </Container>
+      </Grid>
     );
 
   getUpdateform = () =>
     this.state.loggedIn && (
-      <Container>
+      <Grid className='profGrid'>
         <Typography><h2>Hey {this.state.userInfo.username}, update your profile!</h2></Typography>
         <hr/>
         <form>
@@ -149,7 +150,7 @@ class Profile extends Component {
           </FormBtn>
           
         </form>
-      </Container>
+      </Grid>
     );
 
   render() {

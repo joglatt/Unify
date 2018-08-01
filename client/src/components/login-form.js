@@ -3,6 +3,9 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import 'typeface-roboto';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import "./login.css";
+import FingerprintIcon from '@material-ui/icons/Fingerprint';
 
 class LoginForm extends Component {
     constructor() {
@@ -14,7 +17,7 @@ class LoginForm extends Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
-  
+
     }
 
     handleChange(event) {
@@ -49,7 +52,7 @@ class LoginForm extends Component {
             }).catch(error => {
                 console.log('login error: ')
                 console.log(error);
-                
+
             })
     }
 
@@ -58,50 +61,39 @@ class LoginForm extends Component {
             return <Redirect to={{ pathname: this.state.redirectTo }} />
         } else {
             return (
-                <div>
-                   <Typography> <h4>Login</h4> </Typography>
+                <Grid className='logGrid'>
+                    <Typography> <h1>Login <FingerprintIcon/></h1> </Typography>
                     <form className="form-horizontal">
                         <div className="form-group">
-                            <div className="col-1 col-ml-auto">
-                               <Typography> <label className="form-label" htmlFor="username">Username</label></Typography>
-                            </div>
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
-                                    type="text"
-                                    id="username"
-                                    name="username"
-                                    placeholder="Username"
-                                    value={this.state.username}
-                                    onChange={this.handleChange}
-                                />
-                            </div>
+                            <Typography> <label className="form-label" htmlFor="username">Username</label></Typography>
                         </div>
-                        <br />
+                        <input className="form-input"
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Username"
+                            value={this.state.username}
+                            onChange={this.handleChange}
+                        />
+                        <br /> <br/>
                         <div className="form-group">
-                            <div className="col-1 col-ml-auto">
                             <Typography><label className="form-label" htmlFor="password">Password: </label></Typography>
-                            </div>
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
-                                    placeholder="password"
-                                    type="password"
-                                    name="password"
-                                    value={this.state.password}
-                                    onChange={this.handleChange}
-                                />
-                            </div>
+                            <input className="form-input"
+                                placeholder="password"
+                                type="password"
+                                name="password"
+                                value={this.state.password}
+                                onChange={this.handleChange}
+                            />
                         </div>
                         <br />
                         <div className="form-group ">
-                            <div className="col-7"></div>
                             <button
-                                className="btn btn-primary col-1 col-mr-auto"
-                               
                                 onClick={this.handleSubmit}
-                                type="submit">Login</button>
+                                type="submit">ENTER OUR CHAMBERS</button>
                         </div>
                     </form>
-                </div>
+                </Grid>
             )
         }
     }

@@ -1,7 +1,8 @@
-body {
+.IGNORE {
     height: 10%;
     display: flex;
-    border: 3px solid #1544a3;
+    /* this next border line is appearing all over app */
+    /* border: 3px solid #1544a3; */
     border-radius: 10px;
     padding: 25px;
 }

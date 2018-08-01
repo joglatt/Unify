@@ -4,6 +4,9 @@ import { Redirect } from "react-router-dom";
 import { DropDown } from "./Form";
 import "typeface-roboto";
 import Typography from "@material-ui/core/Typography";
+import Grid from '@material-ui/core/Grid';
+import './signup.css'
+import AccessibilityIcon from '@material-ui/icons/Accessibility';
 
 class Signup extends Component {
   constructor() {
@@ -27,6 +30,7 @@ class Signup extends Component {
       [event.target.name]: event.target.value
     });
   }
+
   handleSubmit(event) {
     console.log("sign-up handleSubmit, username: ");
     console.log(this.state.username);
@@ -65,121 +69,94 @@ class Signup extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
-        <div className="SignupForm">
+        <Grid className="signGrid">
           <Typography>
-            <h4>Sign up</h4>
+            <h1>Sign up <AccessibilityIcon/></h1>
           </Typography>
           <form>
             <div>
-              <div>
-                <Typography>
-                  <label htmlFor="username">Username</label>
-                </Typography>
-              </div>
-              <div>
-                <input
-                  className="form-input"
-                  type="text"
-                  id="username"
-                  name="username"
-                  placeholder="Username"
-                  value={this.state.username}
-                  onChange={this.handleChange}
-                />
-              </div>
+              <Typography>
+                <label htmlFor="username">Username</label>
+              </Typography>
             </div>
-            <br />
+            <input
+              className="form-input"
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username"
+              value={this.state.username}
+              onChange={this.handleChange}
+            />
+            <br /><br />
             <div className="form-group">
-              <div>
-                <Typography>
-                  <label htmlFor="password">Password: </label>
-                </Typography>
-              </div>
-              <div>
-                <input
-                  placeholder="Password"
-                  type="password"
-                  name="password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <br />
+              <Typography>
+                <label htmlFor="password">Password: </label>
+              </Typography>
+              <input
+                placeholder="Password"
+                type="password"
+                name="password"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
+              <br /><br />
               <div>
                 <Typography>
                   <label htmlFor="Email">Email Address: </label>
                 </Typography>
               </div>
-              <div>
-                <input
-                  placeholder="Email Address"
-                  type="email"
-                  name="email"
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <br />
-              <div>
-                <Typography>
-                  <label htmlFor="Frontend">Front End Technology: </label>
-                </Typography>
-              </div>
-              <div>
-                <input
-                  placeholder="Front End"
-                  type="frontEnd"
-                  name="frontEnd"
-                  value={this.state.frontEnd}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <br />
-              <div>
-                <Typography>
-                  <label htmlFor="Backend">Back End Technology: </label>
-                </Typography>
-              </div>
-              <div>
-                <input
-                  placeholder="Back End Tech"
-                  type="backEnd"
-                  name="backEnd"
-                  value={this.state.backEnd}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <br />
-              <div>
-                <Typography>
-                  <label htmlFor="City">City: </label>
-                </Typography>
-              </div>
-              <div>
-                <input
-                  placeholder="City"
-                  type="city"
-                  name="city"
-                  value={this.state.city}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <br />
-              <div>
-                <Typography>
-                  <label htmlFor="State">State: </label>
-                </Typography>
-              </div>
-              <div>
-                <DropDown
-                  type="usState"
-                  name="usState"
-                  value={this.state.usState}
-                  onChange={this.handleChange}
-                />
-              </div>
+              <input
+                placeholder="Email Address"
+                type="email"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
+              <br /><br />
+              <Typography>
+                <label htmlFor="Frontend">Front End Technology: </label>
+              </Typography>
+              <input
+                placeholder="Front End"
+                type="frontEnd"
+                name="frontEnd"
+                value={this.state.frontEnd}
+                onChange={this.handleChange}
+              />
+              <br /><br />
+              <Typography>
+                <label htmlFor="Backend">Back End Technology: </label>
+              </Typography>
+              <input
+                placeholder="Back End Tech"
+                type="backEnd"
+                name="backEnd"
+                value={this.state.backEnd}
+                onChange={this.handleChange}
+              />
+              <br /><br />
+              <Typography>
+                <label htmlFor="City">City: </label>
+              </Typography>
+              <input
+                placeholder="City"
+                type="city"
+                name="city"
+                value={this.state.city}
+                onChange={this.handleChange}
+              />
+              <br /><br />
+              <Typography>
+                <label htmlFor="State">State: </label>
+              </Typography>
+              <DropDown
+                type="usState"
+                name="usState"
+                value={this.state.usState}
+                onChange={this.handleChange}
+              />
             </div>
-            <div>
               <div />
               <br />
               <button
@@ -187,11 +164,10 @@ class Signup extends Component {
                 onClick={this.handleSubmit}
                 type="submit"
               >
-                Sign up
+                JOIN OUR WORLD
               </button>
-            </div>
           </form>
-        </div>
+        </Grid>
       );
     }
   }
