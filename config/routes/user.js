@@ -33,7 +33,7 @@ module.exports = function(app) {
       } else {
         geocoder
           .geocode(` ${city} ${usState}`)
-          .then(function(res) {
+          .then(function(response) {
             const newUser = new User({
               username: username,
               password: password,
@@ -42,13 +42,13 @@ module.exports = function(app) {
               backEnd: backEnd,
               city: city,
               usState: usState,
-              longitude: res[0].longitude,
-              latitude: res[0].latitude
+              longitude: response[0].longitude,
+              latitude: response[0].latitude
             });
             newUser.save((err, savedUser) => {
-              if (err) return res.json(err);
+              if (err) return response.json(err);
               console.log(savedUser);
-              // res.json(savedUser);
+              res.json(savedUser);
             });
           })
           .catch(function(err) {
