@@ -10,7 +10,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import "./home.css";
 import axios from "axios";
-import png2 from '../assets/images/png2.png'
+import logo4 from '../assets/images/logo4.png';
+
 
 const styles = {
   root: {
@@ -61,7 +62,7 @@ class Navbar extends Component {
                 color="inherit"
                 className={classes.flex}
               >
-              <img src={png2} alt="Unify logo"/>
+              <img src={logo4} alt="Unify logo"/>
               </Typography>
               <Link
                 onClick={this.logout}
@@ -87,7 +88,7 @@ class Navbar extends Component {
                 color="inherit"
                 className={classes.flex}
               >
-                <img src={png2} alt="Unify logo"/>
+                <img src={logo4} alt="Unify logo"/>
               </Typography>
               <Link to="/user/login" className="btn btn-link text-secondary">
                 <Button className="text-secondary" color="inherit">

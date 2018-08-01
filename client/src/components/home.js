@@ -10,7 +10,7 @@ class Home extends Component {
         return (
             <Grid className='homeGrid'> 
                 <Typography>
-                    <h1>Welcome to Unify.</h1>
+                    <h1>Welcome to Unify!</h1>
                     <h2>Where coders connect <DoneIcon/></h2>
                 </Typography>
             </Grid>
