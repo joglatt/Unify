@@ -91,15 +91,17 @@ class Profile extends Component {
     this.state.loggedIn && (
       <Grid className='profGrid'>
          <Avatar> <h2>Hi </h2></Avatar> 
+         <div className='lineTest'></div>
          <Typography><h1> {this.state.userInfo.username} ! <PersonIcon/></h1> </Typography>  
          <hr/>
-        <Typography><h3>Your preferred frontend technology:</h3> 
+        <Typography><h2>Your preferred frontend technology:</h2> 
         <h2 className='dbInfo'>{this.state.userInfo.frontEnd}</h2></Typography>
-        <Typography><h3>Your preferred backend technology:</h3> 
+        <Typography><h2>Your preferred backend technology:</h2> 
         <h2 className='dbInfo'>{this.state.userInfo.backEnd}</h2></Typography>
-        <Typography><h3>Your email address:</h3> 
+        <Typography><h2>Your email address:</h2> 
         <h2 className='dbInfo'> {this.state.userInfo.email}</h2></Typography>
-        <button onClick={() => this.handleUpdate(true)}>Update<BuildIcon/></button><br/><br/>
+        <hr/><br/>
+        <button onClick={() => this.handleUpdate(true)}>Make an update<BuildIcon/></button><br/><br/>
         <DeleteBtn onClick={() => this.deleteUser(this.state._id)} />
       </Grid>
     );
@@ -107,7 +109,7 @@ class Profile extends Component {
   getUpdateform = () =>
     this.state.loggedIn && (
       <Grid className='profGrid'>
-        <Typography><h2>Hey {this.state.userInfo.username}, update your profile!</h2></Typography>
+        <Typography><h1>Hey {this.state.userInfo.username}, update your profile!</h1></Typography>
         <hr/>
         <form>
           <Typography><h2>Your username:</h2></Typography>

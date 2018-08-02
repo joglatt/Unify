@@ -71,12 +71,12 @@ class Signup extends Component {
       return (
         <Grid className="signGrid">
           <Typography>
-            <h1>Sign up <AccessibilityIcon/></h1>
+            <h1>Set up your profile <AccessibilityIcon /></h1>
           </Typography>
           <form>
             <div>
               <Typography>
-                <label htmlFor="username">Username</label>
+                <label htmlFor="username">Select A Username</label>
               </Typography>
             </div>
             <input
@@ -90,10 +90,9 @@ class Signup extends Component {
             />
             <br /><br />
             <div className="form-group">
-              <Typography>
-                <label htmlFor="password">Password: </label>
-              </Typography>
+              <Typography><label htmlFor="password">Password: </label></Typography>
               <input
+                className="form-input"
                 placeholder="Password"
                 type="password"
                 name="password"
@@ -107,6 +106,7 @@ class Signup extends Component {
                 </Typography>
               </div>
               <input
+                className="form-input"
                 placeholder="Email Address"
                 type="email"
                 name="email"
@@ -118,6 +118,7 @@ class Signup extends Component {
                 <label htmlFor="Frontend">Front End Technology: </label>
               </Typography>
               <input
+                className="form-input"
                 placeholder="Front End"
                 type="frontEnd"
                 name="frontEnd"
@@ -129,6 +130,7 @@ class Signup extends Component {
                 <label htmlFor="Backend">Back End Technology: </label>
               </Typography>
               <input
+                className="form-input"
                 placeholder="Back End Tech"
                 type="backEnd"
                 name="backEnd"
@@ -140,6 +142,7 @@ class Signup extends Component {
                 <label htmlFor="City">City: </label>
               </Typography>
               <input
+                className="form-input"
                 placeholder="City"
                 type="city"
                 name="city"
@@ -151,20 +154,21 @@ class Signup extends Component {
                 <label htmlFor="State">State: </label>
               </Typography>
               <DropDown
+                className="form-input"
                 type="usState"
                 name="usState"
                 value={this.state.usState}
                 onChange={this.handleChange}
               />
             </div>
-              <div />
-              <br />
-              <button
-                className="btn btn-primary col-1 col-mr-auto"
-                onClick={this.handleSubmit}
-                type="submit"
-              >
-                JOIN OUR WORLD
+            <div />
+            <br />
+            <button
+              className="btn btn-primary col-1 col-mr-auto"
+              onClick={this.handleSubmit}
+              type="submit"
+            >
+              JOIN OUR WORLD
               </button>
           </form>
         </Grid>
