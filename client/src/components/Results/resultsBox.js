@@ -1,21 +1,21 @@
 import React from "react";
 // import "./ResultsBox.css";
+import List from "./list";
 import ListItem from "./listItem";
 
 class ResultsBox extends React.Component {
-    render () {
+    render() {
+        const {results} = this.props
+        console.log(results)
 
         return (
-            <div>Hello World</div>
-        )
-        //     const {results}  = this.props
-        //     return (
-        //         <div>
-        //             <List results={results} />}
-        //         </div>
-        //     );
-        // }
+            <div>
+                <List results={results}/>
+            </div>
+        );
+
     }
 }
+
 
 export default ResultsBox;

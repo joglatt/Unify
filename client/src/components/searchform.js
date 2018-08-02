@@ -1,9 +1,13 @@
 import React, {Component} from "react";
 import api from "../api/api";
-import ResultsBox from "./Results/resultsBox.js";
+import ResultsBox from "./Results/resultsBox";
+import List from "./Results/list";
+
+
 
 
 class SearchBar extends Component {
+    //VERY IMPORTANT
     constructor() {
         super();
         this.state = {
@@ -12,12 +16,13 @@ class SearchBar extends Component {
             backEnd: null,
             // backEndScore: "",
             location: null,
+            //THIS IS THE ARRAY OF THE SEARCH RESULTS
             searchResults: []
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     };
-
+    //IMPORTANT FOR CHANGES IN FORM INPUTS
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value,
@@ -33,10 +38,11 @@ class SearchBar extends Component {
                     let apiResults = res.data;
                     let results = apiResults.map(apiResult => {
                         return {
+                            //THESE ARE THE KEYS OF THE ARRAYS
                             id: apiResult._id,
-                            name: apiResult.name,
+                            username: apiResult.username,
                             frontEnd: apiResult.frontEnd,
-                            backEnd:apiResult.backEnd,
+                            backEnd:apiResugitlt.backEnd,
                             location: apiResult.location,
                             email: apiResult.email
                         };
@@ -145,9 +151,16 @@ class SearchBar extends Component {
                 {/*</div>*/}
 
 
-                <div>
 
-                </div>
+
+                <ResultsBox results = {this.state.searchResults}>
+                    <List/>
+                    <h1>Hello Results</h1>
+                </ResultsBox>
+
+
+
+
 
             </div>
         );

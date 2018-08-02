@@ -5,17 +5,19 @@ import PropTypes from "prop-types";
 class ListItem extends React.Component {
     render () {
         const {data} = this.props
+        console.log(data)
         return (
             <li>
                 <div>
                     <div>
 
-                        <h3>{data.username}</h3>
-                        <div>{data.email}</div>
-                        <p>{data.frontEnd}</p>
-                        <p>{data.backEnd}</p>
-                        <p>{data.location}</p>
-                        {/*{handleSaveArticle && <Button text="Save" handleButton={handleSaveArticle}/>}*/}
+                        <h3>Name: {data.username}</h3>
+                        <div>Email: {data.email}</div>
+                        <p>Frontend: {data.frontEnd}</p>
+                        <p>Backend: {data.backEnd}</p>
+                        <p>Location: {data.location}</p>
+                        <button>Contact</button>
+
                     </div>
                 </div>
             </li>
