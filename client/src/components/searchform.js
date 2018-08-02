@@ -1,8 +1,11 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import api from "../api/api";
 import ResultsBox from "./Results/resultsBox";
 import List from "./Results/list";
-
+import './searchform.css'
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import SearchIcon from '@material-ui/icons/Search';
 
 
 
@@ -42,7 +45,7 @@ class SearchBar extends Component {
                             id: apiResult._id,
                             username: apiResult.username,
                             frontEnd: apiResult.frontEnd,
-                            backEnd:apiResugitlt.backEnd,
+                            backEnd: apiResult.backEnd,
                             location: apiResult.location,
                             email: apiResult.email
                         };
@@ -61,108 +64,87 @@ class SearchBar extends Component {
     render() {
         return (
 
-            <div>
-                <h3>Search For A User</h3>
+            <Grid className='searchGrid'>
                 <div>
-                    <h4>Front End Tech</h4>
+                    <Typography><h1>Search For A User</h1>
+                    <hr/>
+                        <h2>Frontend Tech</h2></Typography>
                     <label htmlFor="frontEnd"></label>
-                </div>
-                <div>
-                    <input
-                        className="form-input"
-                        type="text"
-                        id="frontEnd"
-                        name="frontEnd"
-                        placeholder=""
-                        value={this.state.frontEnd}
-                        onChange={this.handleChange}
-                    />
+                        <input
+                            className="form-input"
+                            type="text"
+                            id="frontEnd"
+                            name="frontEnd"
+                            placeholder="enter tech"
+                            value={this.state.frontEnd}
+                            onChange={this.handleChange}
+                        />
 
-                </div>
-                {/*<label>*/}
+                    {/*<label>*/}
                     {/*<h4>Front End Skill Level:</h4>*/}
                     {/*<select value={this.state.value} onChange={this.handleChange}>*/}
-                        {/*<option value="1">Beginner</option>*/}
-                        {/*<option value="2">Novice</option>*/}
-                        {/*<option value="3">Intermediate</option>*/}
-                        {/*<option value="4">Advanced</option>*/}
-                        {/*<option value="5">Expert</option>*/}
+                    {/*<option value="1">Beginner</option>*/}
+                    {/*<option value="2">Novice</option>*/}
+                    {/*<option value="3">Intermediate</option>*/}
+                    {/*<option value="4">Advanced</option>*/}
+                    {/*<option value="5">Expert</option>*/}
                     {/*</select>*/}
-                {/*</label>*/}
-                <div>
-                    <h4>Back End Tech</h4>
+                    {/*</label>*/}
+                    <Typography>   <h2>Backend Tech</h2></Typography>
                     <label htmlFor="backEnd"></label>
-                </div>
-                <div>
-                    <input
-                        className="form-input"
-                        type="text"
-                        id="backEnd"
-                        name="backEnd"
-                        placeholder=""
-                        value={this.state.backEnd}
-                        onChange={this.handleChange}
-                    />
-
-                </div>
-                {/*<label>*/}
+                        <input
+                            className="form-input"
+                            type="text"
+                            id="backEnd"
+                            name="backEnd"
+                            placeholder="enter tech"
+                            value={this.state.backEnd}
+                            onChange={this.handleChange}
+                        />
+                    {/*<label>*/}
                     {/*<h4>Back End Skill Level:</h4>*/}
                     {/*<select value={this.state.value} onChange={this.handleChange}>*/}
-                        {/*<option value="1">Beginner</option>*/}
-                        {/*<option value="2">Novice</option>*/}
-                        {/*<option value="3">Intermediate</option>*/}
-                        {/*<option value="4">Advanced</option>*/}
-                        {/*<option value="5">Expert</option>*/}
+                    {/*<option value="1">Beginner</option>*/}
+                    {/*<option value="2">Novice</option>*/}
+                    {/*<option value="3">Intermediate</option>*/}
+                    {/*<option value="4">Advanced</option>*/}
+                    {/*<option value="5">Expert</option>*/}
                     {/*</select>*/}
-                {/*</label>*/}
-                <div>
-                    <h4>Location</h4>
+                    {/*</label>*/}
+
+                    <Typography> <h2>Location</h2></Typography>
                     <label htmlFor="location"></label>
-                </div>
-                <div>
-                    <input
-                        className="form-input"
-                        type="text"
-                        id="location"
-                        name="location"
-                        placeholder=""
-                        value={this.state.location}
-                        onChange={this.handleChange}
-                    />
-
-                </div>
-                <div>
-                    <button
-                        className="btn btn-primary col-1 col-mr-auto"
-                        onClick={this.handleSubmit}
-                        type="submit"
-                    >
-                        Search
+                        <input
+                            className="form-input"
+                            type="text"
+                            id="location"
+                            name="location"
+                            placeholder="enter location"
+                            value={this.state.location}
+                            onChange={this.handleChange}
+                        />
+                    <br/><br/>
+                        <button
+                            onClick={this.handleSubmit}
+                            type="submit"
+                        >
+                            Search <SearchIcon/>
                     </button>
-                </div>
-
-
-                {/*<div>*/}
+                    <br /><br />
+                    <hr />
+                    {/*<div>*/}
                     {/*{*/}
-                        {/*this.state.users.map((user) =>*/}
-                            {/*<pre>{JSON.stringify(user)}</pre>*/}
-                        {/*)*/}
+                    {/*this.state.users.map((user) =>*/}
+                    {/*<pre>{JSON.stringify(user)}</pre>*/}
+                    {/*)*/}
                     {/*};*/}
-                {/*</div>*/}
-
-
-
-
-                <ResultsBox results = {this.state.searchResults}>
-                    <List/>
-                    <h1>Hello Results</h1>
-                </ResultsBox>
-
-
-
-
-
-            </div>
+                    {/*</div>*/}
+                    <ResultsBox results={this.state.searchResults}>
+                        <List />
+                        <h1>Hello Results</h1>
+                    </ResultsBox>
+                </div>
+            </Grid>
         );
     }
 }

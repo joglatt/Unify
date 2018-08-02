@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Typography from '@material-ui/core/Typography';
 // import Button from "../Button/Button";
 
 class ListItem extends React.Component {
@@ -9,16 +10,12 @@ class ListItem extends React.Component {
         return (
             <li>
                 <div>
-                    <div>
-
-                        <h3>Name: {data.username}</h3>
-                        <div>Email: {data.email}</div>
-                        <p>Frontend: {data.frontEnd}</p>
-                        <p>Backend: {data.backEnd}</p>
-                        <p>Location: {data.location}</p>
+                        <Typography><h2>Name: {data.username}</h2></Typography>
+                        <Typography><h3>Email: {data.email}</h3></Typography>
+                        <Typography><h3>Frontend: {data.frontEnd}</h3></Typography>
+                        <Typography><h3>Backend: {data.backEnd}</h3></Typography>
+                        <Typography><h3>Location: {data.location}</h3></Typography>
                         <button>Contact</button>
-
-                    </div>
                 </div>
             </li>
         )
