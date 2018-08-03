@@ -1,7 +1,7 @@
 import React from "react";
 // import "./ResultsBox.css";
 import List from "./list";
-import ListItem from "./listItem";
+
 
 class ResultsBox extends React.Component {
     render() {

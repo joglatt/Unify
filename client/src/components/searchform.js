@@ -144,7 +144,6 @@ class SearchBar extends Component {
                     {/*</div>*/}
                     <ResultsBox results={this.state.searchResults}>
                         <List />
-                        <h1>Hello Results</h1>
                     </ResultsBox>
                 </div>
             </Grid>

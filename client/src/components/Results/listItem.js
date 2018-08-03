@@ -1,7 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Typography from '@material-ui/core/Typography';
+import ContactButton from "../Email/email";
+
 // import Button from "../Button/Button";
+
+
 
 class ListItem extends React.Component {
     render () {
@@ -15,7 +19,8 @@ class ListItem extends React.Component {
                         <Typography><h3>Frontend: {data.frontEnd}</h3></Typography>
                         <Typography><h3>Backend: {data.backEnd}</h3></Typography>
                         <Typography><h3>Location: {data.location}</h3></Typography>
-                        <button>Contact</button>
+                        <ContactButton/>
+
                 </div>
             </li>
         )
