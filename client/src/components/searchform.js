@@ -14,12 +14,13 @@ class SearchBar extends Component {
     constructor() {
         super();
         this.state = {
-            frontEnd: null,
-            // frontEndScore: "",
-            backEnd: null,
-            // backEndScore: "",
-            location: null,
-            //THIS IS THE ARRAY OF THE SEARCH RESULTS
+            search: {
+                frontEnd: null,
+                // frontEndScore: "",
+                backEnd: null,
+                // backEndScore: "",
+                location: null,
+            },
             searchResults: []
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,12 +29,14 @@ class SearchBar extends Component {
     //IMPORTANT FOR CHANGES IN FORM INPUTS
     handleChange(event) {
         this.setState({
-            [event.target.name]: event.target.value,
+            search: {
+                [event.target.name]: event.target.value
+            },
         })
     };
 
     handleSubmit(event) {
-        api.search(this.state)
+        api.search(this.state.search)
             .then(
                 res => {
                     console.log(res.data);
