@@ -13,7 +13,8 @@ const userSchema = new Schema({
   city: { type: String, unique: false, required: true },
   usState: { type: String, unique: false, required: false },
   latitude: { type: Number, unique: false, required: false },
-  longitude: { type: Number, unique: false, required: false }
+  longitude: { type: Number, unique: false, required: false },
+  // message: {type: String, unique: false, reuqired: false, dateTime}
 });
 
 // Define schema methods

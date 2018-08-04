@@ -22,6 +22,10 @@ class ContactButton extends Component {
         this.setState({ open: false });
     };
 
+    handleSubmit = () => {}
+
+    ;
+
     render() {
         return (
             <div>
@@ -58,7 +62,7 @@ class ContactButton extends Component {
                         <Button onClick={this.handleClose} color="primary">
                             Cancel
                         </Button>
-                        <Button onClick={this.handleClose} color="primary">
+                        <Button onClick={this.handleSubmit} color="primary">
                             Send
                         </Button>
                     </DialogActions>

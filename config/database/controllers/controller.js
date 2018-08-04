@@ -1,6 +1,9 @@
 const path = require("path");
 const router = require("express").Router();
 const db = require("../models");
+const nodemailer = require("nodemailer");
+
+
 
 const userFunctions = {
     findAll: function (req, res) {
@@ -34,6 +37,37 @@ const userFunctions = {
         db.User.find(req.query)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+    },
+
+    email: function(req, res) {
+        console.log(req.body);
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'trashbin4268@gmail.com',
+                pass: 'inamirrordarkly'
+            }
+        });
+
+        var mailOptions = {
+            from: 'trashbin4268@gmail.com',
+            to: req.body.to,
+            subject: req.body.subject,
+            text: req.body.text
+        };
+
+        // console.log(mailOptions);
+
+        transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.response);
+            }
+        });
+
+        res.status(200).json({});
+
     }
 };
 
@@ -46,5 +80,7 @@ router.get("/api/allusers/", userFunctions.findAll);
 router.patch("/api/users/:id", userFunctions.update);
 
 router.get("/api/users", userFunctions.find);
+
+router.post("/api/user/messages", userFunctions.email);
 
 module.exports = router;

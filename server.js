@@ -8,6 +8,9 @@ const passport = require('./config/passport');
 const app = express()
 const controller = require("./config/database/controllers/controller")
 const PORT = process.env.PORT || 3001;
+// const nodemailer = require('nodemailer');
+
+
 
 // MIDDLEWARE
 app.use(morgan('dev'))

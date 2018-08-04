@@ -42,5 +42,10 @@ export default {
     searchUserLocation: function (id) {
         return axios.get("/api/users/location/" + id);
 
+    },
+
+    emailPeople: function (body) {
+        // Not sure if this is how you do this.
+        return axios.post("/api/user/messages", body)
     }
 };
