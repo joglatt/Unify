@@ -15,7 +15,7 @@ class Home extends Component {
                     <h2>Where coders connect <DoneIcon /></h2>
                 </Typography>
                 <hr/><br />
-                <MyMapComponent />
+                <MyMapComponent isMarkerShown/>
             </Grid>
 
         );
