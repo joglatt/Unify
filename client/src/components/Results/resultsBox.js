@@ -5,12 +5,12 @@ import List from "./list";
 
 class ResultsBox extends React.Component {
     render() {
-        const {results} = this.props
-        console.log(results)
+        const {results, replyTo} = this.props;
+        console.log(replyTo);
 
         return (
             <div>
-                <List results={results}/>
+                <List results={results} replyTo={replyTo}/>
             </div>
         );
 

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import api from "../api/api";
-import axios from "axios";
 import ResultsBox from "./Results/resultsBox";
 import List from "./Results/list";
 import './searchform.css'
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import SearchIcon from '@material-ui/icons/Search';
+import axios from "axios";
+
 
 
 
@@ -14,12 +14,12 @@ class SearchBar extends Component {
     //VERY IMPORTANT, Sets State
     constructor(props) {
         super(props);
-        let userProfile = api.getLoggedInUser();
         this.state = {
             loggedIn: false,
             username: null,
-            userInfo: {},
-            email: userProfile.userInfo,
+            userInfo: {
+                email: null
+            },
             search: {
                 frontEnd: null,
                 // frontEndScore: "",
@@ -29,22 +29,51 @@ class SearchBar extends Component {
             },
             searchResults: []
         };
+    };
 
-        console.log(this.state.email);
+
+
+    getLoggedInUser() {
+        axios.get("/user/profile").then(response => {
+            // console.log("full response: " + response);
+            // // console.log("Get user response: ");
+            // console.log(response.data);
+            // console.log("this is the username: " + response.data.user.username);
+            // console.log("this is the frontend info: " + response.data.user.frontEnd);
+            if (response.data.user) {
+                console.log("Get User: There is a user saved in the server session: ");
+                api.getUser(response.data.user._id).then(response => {
+                    this.setState({
+                        userInfo: response.data
+                    })
+                });
+            } else {
+                console.log("Get user: no user");
+                return {
+                    loggedIn: false,
+                    username: null
+                };
+            }
+        });
+    }
+
+    componentDidMount() {
+        this.getLoggedInUser();
     };
 
 
 
     //IMPORTANT FOR CHANGES IN FORM INPUTS
-    handleChange(event) {
+    handleChange = (event) => {
         this.setState({
             search: {
                 [event.target.name]: event.target.value
             },
-        })
+        });
+        console.log(this.state);
     };
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         api.search(this.state.search)
             .then(
                 res => {
@@ -78,9 +107,9 @@ class SearchBar extends Component {
 
             <Grid className='searchGrid'>
                 <div>
-                    <Typography><h1>Search For A User</h1>
+                    <h1>Search For A User</h1>
                     <hr/>
-                        <h2>Frontend Tech</h2></Typography>
+                    <h2>Frontend Tech</h2>
                     <label htmlFor="frontEnd"></label>
                         <input
                             className="form-input"
@@ -102,7 +131,7 @@ class SearchBar extends Component {
                     {/*<option value="5">Expert</option>*/}
                     {/*</select>*/}
                     {/*</label>*/}
-                    <Typography>   <h2>Backend Tech</h2></Typography>
+                    <h2>Backend Tech</h2>
                     <label htmlFor="backEnd"></label>
                         <input
                             className="form-input"
@@ -124,7 +153,7 @@ class SearchBar extends Component {
                     {/*</select>*/}
                     {/*</label>*/}
 
-                    <Typography> <h2>Location</h2></Typography>
+                    <h2>Location</h2>
                     <label htmlFor="location"></label>
                         <input
                             className="form-input"
@@ -152,7 +181,7 @@ class SearchBar extends Component {
                     {/*};*/}
                     {/*</div>*/}
 
-                    <ResultsBox results={this.state.searchResults} email={} to={}>
+                    <ResultsBox results={this.state.searchResults} replyTo={this.state.userInfo.email}>
                         <List />
                     </ResultsBox>
                 </div>

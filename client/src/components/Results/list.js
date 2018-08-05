@@ -5,13 +5,13 @@ import Typography from '@material-ui/core/Typography';
 
 class List extends React.Component {
     render () {
-        const { results } = this.props
+        const { results, replyTo } = this.props;
         return (
             <div>
                 <Typography><h2>Your search results!</h2></Typography>
                 <ul>
                     {results.map(result =>
-                        <ListItem  key={result.id} data={result}/>
+                        <ListItem  key={result.id} data={result} replyTo={replyTo} />
                     )}
                 </ul>
             </div>
