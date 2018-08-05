@@ -51,6 +51,7 @@ const userFunctions = {
 
         var mailOptions = {
             from: 'trashbin4268@gmail.com',
+            replyTo: req.body.replyTo,
             to: req.body.to,
             subject: req.body.subject,
             text: req.body.text

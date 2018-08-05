@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import api from "../api/api";
+import axios from "axios";
 import ResultsBox from "./Results/resultsBox";
 import List from "./Results/list";
 import './searchform.css'
@@ -10,22 +11,66 @@ import SearchIcon from '@material-ui/icons/Search';
 
 
 class SearchBar extends Component {
-    //VERY IMPORTANT
-    constructor() {
-        super();
+    //VERY IMPORTANT, Sets State
+    constructor(props) {
+        super(props);
         this.state = {
+            loggedIn: false,
+            username: null,
+            userInfo: {},
+            email: '',
             search: {
                 frontEnd: null,
                 // frontEndScore: "",
                 backEnd: null,
                 // backEndScore: "",
                 location: null,
-            },
+                    },
             searchResults: []
         };
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
     };
+
+    //Load the current logged in user
+    loadUser = id => {
+        api
+            .getUser(id)
+            .then(
+                res => {
+
+                    console.log(res.data);
+                    //Catching the email of the logged in user for the Contact Button
+                    this.setState({ userInfo: res.data, email: res.data.email});
+                    console.log(this.state.email);
+                })
+            .catch(err => console.log(err));
+
+    };
+
+    //Confirms and gets the info for the current logged in user
+    componentDidMount() {
+        axios.get("/user/profile").then(response => {
+            console.log("full response: " + response);
+            console.log("Get user response: ");
+            console.log(response.data);
+            console.log("this is the username: " + response.data.user.username);
+            console.log("this is the frontend info: " + response.data.user.frontEnd);
+            if (response.data.user) {
+                console.log("Get User: There is a user saved in the server session: ");
+                this.loadUser(response.data.user._id);
+                this.setState({
+                    loggedIn: true,
+                    username: response.data.user.username,
+                    userInfo: response.data
+                });
+            } else {
+                console.log("Get user: no user");
+                this.setState({
+                    loggedIn: false,
+                    username: null
+                });
+            }
+        });
+    }
     //IMPORTANT FOR CHANGES IN FORM INPUTS
     handleChange(event) {
         this.setState({
@@ -142,7 +187,8 @@ class SearchBar extends Component {
                     {/*)*/}
                     {/*};*/}
                     {/*</div>*/}
-                    <ResultsBox results={this.state.searchResults}>
+
+                    <ResultsBox results={this.state.searchResults} email={}>
                         <List />
                     </ResultsBox>
                 </div>
@@ -151,4 +197,8 @@ class SearchBar extends Component {
     }
 }
 
+
+array props = [
+    "results": ...
+];
 export default SearchBar;

@@ -6,12 +6,21 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import api from "../../api/api";
+import PropTypes from "prop-types";
+import axios from "axios";
 
 
 
 class ContactButton extends Component {
-    state = {
-        open: false,
+    constructor(props) {
+        super(props);
+        this.state = {
+            //Email of the logged in user
+            loggedInEmail:"",
+            open: false,
+            message: ""
+        };
     };
 
     handleClickOpen = () => {
@@ -22,11 +31,38 @@ class ContactButton extends Component {
         this.setState({ open: false });
     };
 
-    handleSubmit = () => {}
+    handleChange(event) {
+        console.log()
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+
+    //This is not complete, you need to:
+    // 0. Write a function to handle changes to the "text" field, this function should store the value of the input in the state
+    // 1. Pull the email address of the person to whom your sending the email
+    // 2. pull the email address of the person from whom the email is coming from
+    // 3. Explicitly pull the message from the same place you stored the "Text" field in the state
+    // 4. Put all of the above into an object using the keys to, replyTo, text
+    handleSubmit = (event) => {
+        const messageContents = {
+            to: ,
+            replyTo: "",
+            text: ""
+        };
+
+        api.emailPeople(messageContents)
+    }
 
     ;
 
     render() {
+
+        const { data } = this.props
+        //Email address of the persons we're sending the message to
+        console.log(data.email);
+
         return (
             <div>
                 <Button onClick={this.handleClickOpen}>Contact</Button>
@@ -44,18 +80,12 @@ class ContactButton extends Component {
                         <TextField
                             autoFocus
                             margin="dense"
-                            id="name"
-                            label="Email Address"
-                            type="email"
+                            id="message"
+                            label="message"
+                            type="string"
                             fullWidth
-                        />
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label="Message"
-                            type="message"
-                            fullWidth
+                            value={this.state.message}
+                            onChange={this.handleChange}
                         />
                     </DialogContent>
                     <DialogActions>
@@ -72,5 +102,9 @@ class ContactButton extends Component {
     }
 }
 
+
+ContactButton.props = {
+    children: PropTypes.node
+}
 
 export default ContactButton;

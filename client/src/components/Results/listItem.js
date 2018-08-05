@@ -9,7 +9,7 @@ import ContactButton from "../Email/email";
 
 class ListItem extends React.Component {
     render () {
-        const {data} = this.props
+        const {data} = this.props;
         console.log(data)
         return (
             <li>
@@ -19,7 +19,7 @@ class ListItem extends React.Component {
                         <Typography><h3>Frontend: {data.frontEnd}</h3></Typography>
                         <Typography><h3>Backend: {data.backEnd}</h3></Typography>
                         <Typography><h3>Location: {data.location}</h3></Typography>
-                        <ContactButton/>
+                        <ContactButton data = { data } />
 
                 </div>
             </li>
