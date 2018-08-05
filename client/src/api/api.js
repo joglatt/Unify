@@ -47,5 +47,29 @@ export default {
     emailPeople: function (body) {
         // Not sure if this is how you do this.
         return axios.post("/api/user/messages", body)
+    },
+
+    getLoggedInUser: function () {
+        axios.get("/user/profile").then(response => {
+            // console.log("full response: " + response);
+            // console.log("Get user response: ");
+            // console.log(response.data);
+            // console.log("this is the username: " + response.data.user.username);
+            // console.log("this is the frontend info: " + response.data.user.frontEnd);
+            if (response.data.user) {
+                console.log("Get User: There is a user saved in the server session: ");
+                return {
+                    loggedIn: true,
+                    username: response.data.user.username,
+                    userInfo: response.data
+                };
+            } else {
+                console.log("Get user: no user");
+                return {
+                    loggedIn: false,
+                    username: null
+                };
+            }
+        });
     }
 };

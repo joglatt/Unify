@@ -8,18 +8,18 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import api from "../../api/api";
 import PropTypes from "prop-types";
-import axios from "axios";
-
-
 
 class ContactButton extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            //Email of the logged in user
-            loggedInEmail:"",
             open: false,
-            message: ""
+            messageContents: {
+                replyTo: props.email,
+                to: props.to,
+                subject: "You've received a new message from Unify",
+                message: null
+            }
         };
     };
 
@@ -32,37 +32,25 @@ class ContactButton extends Component {
     };
 
     handleChange(event) {
-        console.log()
         this.setState({
-            [event.target.name]: event.target.value
+            messageContents: {
+                message: event.target.value
+            }
         })
     }
 
 
     //This is not complete, you need to:
     // 0. Write a function to handle changes to the "text" field, this function should store the value of the input in the state
-    // 1. Pull the email address of the person to whom your sending the email
+    // 1. Puemailll the email address of the person to whom your sending the email
     // 2. pull the email address of the person from whom the email is coming from
     // 3. Explicitly pull the message from the same place you stored the "Text" field in the state
     // 4. Put all of the above into an object using the keys to, replyTo, text
     handleSubmit = (event) => {
-        const messageContents = {
-            to: ,
-            replyTo: "",
-            text: ""
-        };
-
-        api.emailPeople(messageContents)
-    }
-
-    ;
+        api.emailPeople(this.state.messageContents)
+    };
 
     render() {
-
-        const { data } = this.props
-        //Email address of the persons we're sending the message to
-        console.log(data.email);
-
         return (
             <div>
                 <Button onClick={this.handleClickOpen}>Contact</Button>
@@ -100,11 +88,6 @@ class ContactButton extends Component {
             </div>
         );
     }
-}
-
-
-ContactButton.props = {
-    children: PropTypes.node
 }
 
 export default ContactButton;
