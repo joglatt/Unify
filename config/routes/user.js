@@ -6,10 +6,10 @@ const options = {
 
   // Optional depending on the providers
   httpAdapter: "https", // Default
-  apiKey: "AIzaSyAwEesb05yvEYtwgrd3I2slK-8ba6E7u9o", // for Mapquest, OpenCage, Google Premier
+  apiKey: "AIzaSyBwMH7UqQ979BrIAfNk316K8c6KhaSMglE", // for Mapquest, OpenCage, Google Premier
   formatter: null // 'gpx', 'string', ...
 };
-var geocoder = NodeGeocoder(options);
+const geocoder = NodeGeocoder(options);
 module.exports = function(app) {
   app.post("/user", (req, res) => {
     console.log("user signup");
@@ -96,6 +96,15 @@ module.exports = function(app) {
   });
 
   app.get("/user/profile", (req, res, next) => {
+    console.log("profile page");
+    console.log(req.user);
+    if (req.user) {
+      res.json({ user: req.user });
+    } else {
+      res.redirect("/user/login");
+    }
+  });
+  app.get("/user/search", (req, res, next) => {
     console.log("profile page");
     console.log(req.user);
     if (req.user) {

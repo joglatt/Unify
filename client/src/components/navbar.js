@@ -10,8 +10,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import "./home.css";
 import axios from "axios";
-import logo4 from '../assets/images/logo4.png';
-
+import logo4 from "../assets/images/logo4.png";
 
 const styles = {
   root: {
@@ -62,8 +61,20 @@ class Navbar extends Component {
                 color="inherit"
                 className={classes.flex}
               >
-              <img src={logo4} alt="Unify logo"/>
+                <Link to="/user/home">
+                  <img src={logo4} alt="Unify logo" />
+                </Link>
               </Typography>
+              <Link to="/user/profile" className="btn btn-link text-secondary">
+                <Button className="text-secondary" color="inherit">
+                  Account
+                </Button>
+              </Link>
+              <Link to="/user/search" className="btn btn-link text-secondary">
+                <Button className="text-secondary" color="inherit">
+                  Search
+                </Button>
+              </Link>
               <Link
                 onClick={this.logout}
                 to="#"
@@ -71,11 +82,6 @@ class Navbar extends Component {
               >
                 <Button className="text-secondary" color="inherit">
                   Log out
-                </Button>
-              </Link>
-              <Link to="/user/profile" className="btn btn-link text-secondary">
-                <Button className="text-secondary" color="inherit">
-                  Account
                 </Button>
               </Link>
             </Toolbar>
@@ -88,7 +94,9 @@ class Navbar extends Component {
                 color="inherit"
                 className={classes.flex}
               >
-                <img src={logo4} alt="Unify logo"/>
+                <Link to="/user/home">
+                  <img src={logo4} alt="Unify logo" />
+                </Link>
               </Typography>
               <Link to="/user/login" className="btn btn-link text-secondary">
                 <Button className="text-secondary" color="inherit">
