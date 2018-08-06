@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import api from "../api/api";
-import ResultsBox from "./Results/resultsBox";
-import List from "./Results/list";
-import "./searchform.css";
+import ResultsBox from "../components/Results/resultsBox";
+import List from "../components/Results/list";
+import "../styles/searchform.css";
 import Grid from "@material-ui/core/Grid";
 import SearchIcon from "@material-ui/icons/Search";
 import axios from "axios";

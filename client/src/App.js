@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Route } from "react-router-dom";
 // components
-import Signup from "./components/sign-up";
-import LoginForm from "./components/login-form";
+import Signup from "./pages/sign-up";
+import LoginForm from "./pages/login-form";
 import Navbar from "./components/navbar";
-import Home from "./components/home";
-import Profile from "./components/profile";
+import Home from "./pages/home";
+import Profile from "./pages/profile";
 import AllUsers from "./components/allusers";
-import Search from "./components/searchform.js"
+import Search from "./pages/searchform.js"
 import ContactButton from "./components/Email/email";
 // import { ResultsBox, List, ListItem} from "./components/Results";
 

@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import "typeface-roboto";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import "./home.css";
+import "../styles/home.css";
 import DoneIcon from "@material-ui/icons/Done";
-import MyMapComponent from "./map.js";
+import MyMapComponent from "../components/map.js";
 import api from "../api/api";
 class Home extends Component {
   constructor(props) {
@@ -50,7 +50,7 @@ class Home extends Component {
         </Typography>
         <hr />
         <br />
-        <MyMapComponent markers={this.state.markers} isMarkerShown />
+        <MyMapComponent markers={this.state.markers}  />
       </Grid>
     );
   }

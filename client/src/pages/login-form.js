@@ -4,7 +4,7 @@ import axios from 'axios'
 import 'typeface-roboto';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import "./login.css";
+import "../styles/login.css";
 import FingerprintIcon from '@material-ui/icons/Fingerprint';
 
 class LoginForm extends Component {

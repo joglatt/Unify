@@ -53,6 +53,7 @@ const MyMapComponent = compose(
                 <div> User: {marker.username}</div>
                 <div>Front End: {marker.frontEnd}</div>
                 <div>Back End:{marker.backEnd}</div>
+                <a></a>
               </div>
             </div>
           </InfoBox>

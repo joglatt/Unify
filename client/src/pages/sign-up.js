@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import { DropDown } from "./Form";
+import { DropDown } from "../components/Form";
 import "typeface-roboto";
 import Typography from "@material-ui/core/Typography";
 import Grid from '@material-ui/core/Grid';
-import './signup.css'
+import '../styles/signup.css'
 import AccessibilityIcon from '@material-ui/icons/Accessibility';
 
 class Signup extends Component {
