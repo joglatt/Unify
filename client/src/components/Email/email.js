@@ -49,6 +49,7 @@ class ContactButton extends Component {
 
         api.emailPeople(messageContents);
         this.handleClose();
+        console.log(messageContents);
     };
 
 
