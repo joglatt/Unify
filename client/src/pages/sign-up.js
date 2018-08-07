@@ -124,32 +124,9 @@ class Signup extends Component {
                 value={this.state.email}
                 onChange={this.handleChange}
               />
+
               <br />
               <br />
-              <Typography>
-                <label htmlFor="Frontend">Front End Technology: </label>
-              </Typography>
-              <input
-                className="form-input"
-                placeholder="Front End"
-                type="frontEnd"
-                name="frontEnd"
-                value={this.state.frontEnd}
-                onChange={this.handleChange}
-              />
-              <br />
-              <br />
-              <Typography>
-                <label htmlFor="Backend">Back End Technology: </label>
-              </Typography>
-              <input
-                className="form-input"
-                placeholder="Back End Tech"
-                type="backEnd"
-                name="backEnd"
-                value={this.state.backEnd}
-                onChange={this.handleChange}
-              />
               <Typography>
                 <label htmlFor="github">Github Profile: </label>
               </Typography>

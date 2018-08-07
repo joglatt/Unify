@@ -165,22 +165,59 @@ class Profile extends Component {
           <Typography>
             <h2>Your preferred frontend tehcnologies:</h2>
           </Typography>
-          <Input
-            value={this.state.userInfo.frontEnd}
-            onChange={this.handleInputChange}
-            name="frontEnd"
-            placeholder="frontEnd (required)"
-          />
+            <select
+                name="frontEnd"
+                value={this.state.userInfo.frontEnd}
+                onChange={this.handleInputChange}
+                className="form-input"
+            >
+                <option value="Angular">Angular</option>
+                <option value="Aurelia">Aurelia</option>
+                <option value="Bootstrap">Bootstrap</option>
+                <option value="CSS">CSS</option>
+                <option value="Dojo">Dojo</option>
+                <option value="Handlebars">Handlebars</option>
+                <option value="Highcharts">Highcharts</option>
+                <option value="HTML">HTML</option>
+                <option value="JQuery">JQuery</option>
+                <option value="Leaflet">Leaflet</option>
+                <option value="React">React</option>
+                <option value="Redux">Redux</option>
+                <option value="Sass">Sass</option>
+                <option value="HTML">HTML</option>
+                <option value="Socket.IO">Socket.IO</option>
+                <option value="Vue">Vue</option>
+                <option value="HTML">HTML</option>
+            </select>
           <br />
           <Typography>
             <h2>Your preferred backend technologies:</h2>
           </Typography>
-          <Input
-            value={this.state.userInfo.backEnd}
-            onChange={this.handleInputChange}
-            name="backEnd"
-            placeholder="backEnd (required)"
-          />
+            <div>
+                <select
+                    name="backEnd"
+                    value={this.state.userInfo.backEnd}
+                    onChange={this.handleInputChange}
+                    className="form-input"
+                >
+                    <option value="Apache">Apache</option>
+                    <option value="Asana">Asana</option>
+                    <option value="Docker">Docker</option>
+                    <option value="Express">Express</option>
+                    <option value="Elastisearch">Elastisearch</option>
+                    <option value="Dojo">Dojo</option>
+                    <option value="MongoDB">MongoDB</option>
+                    <option value="MySQL">MySQL</option>
+                    <option value="PostgreSQL">PostgreSQL</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Python">Python</option>
+                    <option value="NGINX">NGINX</option>
+                    <option value="Node">Node</option>
+                    <option value="SourceTree">SourceTree</option>
+                    <option value="Socket.IO">Socket.IO</option>
+                    <option value="XAMPP">XAMPP</option>
+                </select>
+            </div>
           <br />
           <Typography>
             <h2>Your Emauil address:</h2>

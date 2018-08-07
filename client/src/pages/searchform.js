@@ -107,16 +107,33 @@ class Search extends Component {
             <h1>Search For A User</h1>
             <hr />
             <h2>Frontend Tech</h2>
-            <label htmlFor="frontEnd" />
-            <input
-              className="form-input"
-              type="text"
-              id="frontEnd"
-              name="frontEnd"
-              placeholder="enter tech"
-              value={this.state.frontEnd}
-              onChange={this.handleChange}
-            />
+              <div>
+                  <select
+                      name="frontEnd"
+                      value={this.state.frontEnd}
+                      onChange={this.handleChange}
+                      className="form-input"
+                  >
+                      <option value=''></option>
+                      <option value="Angular">Angular</option>
+                      <option value="Aurelia">Aurelia</option>
+                      <option value="Bootstrap">Bootstrap</option>
+                      <option value="CSS">CSS</option>
+                      <option value="Dojo">Dojo</option>
+                      <option value="Handlebars">Handlebars</option>
+                      <option value="Highcharts">Highcharts</option>
+                      <option value="HTML">HTML</option>
+                      <option value="JQuery">JQuery</option>
+                      <option value="Leaflet">Leaflet</option>
+                      <option value="React">React</option>
+                      <option value="Redux">Redux</option>
+                      <option value="Sass">Sass</option>
+                      <option value="HTML">HTML</option>
+                      <option value="Socket.IO">Socket.IO</option>
+                      <option value="Vue">Vue</option>
+                      <option value="HTML">HTML</option>
+                  </select>
+              </div>
 
             {/*<label>*/}
             {/*<h4>Front End Skill Level:</h4>*/}
@@ -129,16 +146,32 @@ class Search extends Component {
             {/*</select>*/}
             {/*</label>*/}
             <h2>Backend Tech</h2>
-            <label htmlFor="backEnd" />
-            <input
-              className="form-input"
-              type="text"
-              id="backEnd"
-              name="backEnd"
-              placeholder="enter tech"
-              value={this.state.backEnd}
-              onChange={this.handleChange}
-            />
+              <div>
+                  <select
+                      name="backEnd"
+                      value={this.state.backEnd}
+                      onChange={this.handleChange}
+                      className="form-input"
+                  >
+                      <option value=''></option>
+                      <option value="Apache">Apache</option>
+                      <option value="Asana">Asana</option>
+                      <option value="Docker">Docker</option>
+                      <option value="Express">Express</option>
+                      <option value="Elastisearch">Elastisearch</option>
+                      <option value="Dojo">Dojo</option>
+                      <option value="MongoDB">MongoDB</option>
+                      <option value="MySQL">MySQL</option>
+                      <option value="PostgreSQL">PostgreSQL</option>
+                      <option value="PHP">PHP</option>
+                      <option value="Python">Python</option>
+                      <option value="NGINX">NGINX</option>
+                      <option value="Node">Node</option>
+                      <option value="SourceTree">SourceTree</option>
+                      <option value="Socket.IO">Socket.IO</option>
+                      <option value="XAMPP">XAMPP</option>
+                  </select>
+              </div>
             {/*<label>*/}
             {/*<h4>Back End Skill Level:</h4>*/}
             {/*<select value={this.state.value} onChange={this.handleChange}>*/}
