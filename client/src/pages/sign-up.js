@@ -30,6 +30,8 @@ class Signup extends Component {
     this.setState({
       [event.target.name]: event.target.value
     });
+    console.log(this.state.frontEnd);
+    console.log(this.state.backEnd);
   }
 
   handleSubmit(event) {
@@ -166,13 +168,76 @@ class Signup extends Component {
               </Typography>
               <input
                 className="form-input"
-                placeholder="Enter a link for your profile image"
+                placeholder="Enter a link to an image for your profile"
                 type="image_input"
                 name="image"
                 value={this.state.image}
                 onChange={this.handleChange}
               />
               <br />
+              <br />
+              <div>
+                <Typography>
+                  <label htmlFor="Backend">Front End Technology: </label>
+                </Typography>
+              </div>
+              <div>
+                <select
+                  name="frontEnd"
+                  value={this.state.frontEnd}
+                  onChange={this.handleChange}
+                  className="form-input"
+                >
+                  <option value="Angular">Angular</option>
+                  <option value="Aurelia">Aurelia</option>
+                  <option value="Bootstrap">Bootstrap</option>
+                  <option value="CSS">CSS</option>
+                  <option value="Dojo">Dojo</option>
+                  <option value="Handlebars">Handlebars</option>
+                  <option value="Highcharts">Highcharts</option>
+                  <option value="HTML">HTML</option>
+                  <option value="JQuery">JQuery</option>
+                  <option value="Leaflet">Leaflet</option>
+                  <option value="React">React</option>
+                  <option value="Redux">Redux</option>
+                  <option value="Sass">Sass</option>
+                  <option value="HTML">HTML</option>
+                  <option value="Socket.IO">Socket.IO</option>
+                  <option value="Vue">Vue</option>
+                  <option value="HTML">HTML</option>
+                </select>
+              </div>
+              <br />
+              <div>
+                <Typography>
+                  <label htmlFor="Backend">Back End Technology: </label>
+                </Typography>
+              </div>
+              <div>
+                <select
+                  name="backEnd"
+                  value={this.state.backEnd}
+                  onChange={this.handleChange}
+                  className="form-input"
+                >
+                  <option value="Apache">Apache</option>
+                  <option value="Asana">Asana</option>
+                  <option value="Docker">Docker</option>
+                  <option value="Express">Express</option>
+                  <option value="Elastisearch">Elastisearch</option>
+                  <option value="Dojo">Dojo</option>
+                  <option value="MongoDB">MongoDB</option>
+                  <option value="MySQL">MySQL</option>
+                  <option value="PostgreSQL">PostgreSQL</option>
+                  <option value="PHP">PHP</option>
+                  <option value="Python">Python</option>
+                  <option value="NGINX">NGINX</option>
+                  <option value="Node">Node</option>
+                  <option value="SourceTree">SourceTree</option>
+                  <option value="Socket.IO">Socket.IO</option>
+                  <option value="XAMPP">XAMPP</option>
+                </select>
+              </div>
               <br />
               <Typography>
                 <label htmlFor="City">City: </label>

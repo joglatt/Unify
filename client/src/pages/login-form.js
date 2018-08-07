@@ -71,7 +71,7 @@ class LoginForm extends Component {
                             type="text"
                             id="username"
                             name="username"
-                            placeholder="username"
+                            placeholder="Username"
                             value={this.state.username}
                             onChange={this.handleChange}
                         />
@@ -79,7 +79,7 @@ class LoginForm extends Component {
                         <div className="form-group">
                             <Typography><label className="form-label" htmlFor="password">Password: </label></Typography>
                             <input className="form-input"
-                                placeholder="password"
+                                placeholder="Password"
                                 type="password"
                                 name="password"
                                 value={this.state.password}

@@ -21,6 +21,7 @@ class ContactButton extends Component {
         };
     };
 
+    //Handles the open and closing of the modal "Contact" button.
     handleClickOpen = () => {
         this.setState({ open: true });
     };
@@ -29,6 +30,7 @@ class ContactButton extends Component {
         this.setState({ open: false });
     };
 
+    //Handles Input change.
     handleChange = (event) => {
         this.setState({
                 message: event.target.value
@@ -37,7 +39,7 @@ class ContactButton extends Component {
         console.log(this.state.message);
     };
 
-
+    //This submits the passed in requirements for the email.
     handleSubmit = () => {
         let messageContents = {
             replyTo: this.state.replyTo,
@@ -46,9 +48,10 @@ class ContactButton extends Component {
             message: this.state.message
         };
         console.log("About to email -> ", messageContents);
-
+    //HandleSubmit sets up an ajax call to the API function for emailing.
         api.emailPeople(messageContents);
         this.handleClose();
+        console.log(messageContents);
     };
 
 
@@ -59,6 +62,7 @@ class ContactButton extends Component {
         return (
             <div>
                 <Button onClick={this.handleClickOpen}>Contact</Button>
+                {/*<a onClick={this.handleClickOpen}>Here Is A Link</a>*/}
                 <Dialog
                     open={this.state.open}
                     onClose={this.handleClose}

@@ -106,22 +106,23 @@ class Profile extends Component {
         <hr />
         <Frame data={this.state.userInfo} />
         <Typography>
-          <h2>Your preferred frontend technology:</h2>
+          <h2>Your Preferred Frontend Technologies:</h2>
           <h2 className="dbInfo">{this.state.userInfo.frontEnd}</h2>
         </Typography>
         <Typography>
-          <h2>Your preferred backend technology:</h2>
+          <h2>Your Preferred Backend Technologies:</h2>
           <h2 className="dbInfo">{this.state.userInfo.backEnd}</h2>
         </Typography>
         <Typography>
-          <h2>Your email address:</h2>
+          <h2>Your Email Address:</h2>
           <h2 className="dbInfo"> {this.state.userInfo.email}</h2>
         </Typography>
-        <hr />
-        <br />
         <Typography>
           <h2>Your Github Profile:</h2>
-          <a href={this.state.userInfo.github}> {this.state.userInfo.github}</a>
+          <a className="dbInfo" href={this.state.userInfo.github}>
+            {" "}
+            {this.state.userInfo.github}
+          </a>
         </Typography>
         <hr />
         <br />
@@ -153,7 +154,7 @@ class Profile extends Component {
           />
           <br />
           <Typography>
-            <h2>Your preferred frontend technology:</h2>
+            <h2>Your preferred frontend tehcnologies:</h2>
           </Typography>
           <Input
             value={this.state.userInfo.frontEnd}
@@ -163,7 +164,7 @@ class Profile extends Component {
           />
           <br />
           <Typography>
-            <h2>Your preferred backend technology:</h2>
+            <h2>Your preferred backend technologies:</h2>
           </Typography>
           <Input
             value={this.state.userInfo.backEnd}
@@ -173,7 +174,7 @@ class Profile extends Component {
           />
           <br />
           <Typography>
-            <h2>Your email address:</h2>
+            <h2>Your Emauil address:</h2>
           </Typography>
           <Input
             value={this.state.userInfo.email}
