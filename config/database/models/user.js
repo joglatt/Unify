@@ -10,8 +10,13 @@ const userSchema = new Schema({
   email: { type: String, unique: true, required: true },
   frontEnd: { type: String, unique: false, required: true },
   backEnd: { type: String, unique: false, required: true },
+<<<<<<< HEAD
   city: { type: String, unique: false, required: true },
   usState: { type: String, unique: false, required: true },
+=======
+  city: { type: String, lowercase: true, trim: true, unique: false, required: true },
+  usState: { type: String, unique: false, required: false },
+>>>>>>> 21fceecebce0eb18f9f46a50e78694a7880a55e3
   latitude: { type: Number, unique: false, required: false },
   longitude: { type: Number, unique: false, required: false },
   github: { type: String, unique: false, required: false },
