@@ -20,7 +20,9 @@ module.exports = function(app) {
       frontEnd,
       backEnd,
       city,
-      usState
+      usState,
+      github,
+      image
     } = req.body;
     // ADD VALIDATION
     User.findOne({ username: username }, (err, user) => {
@@ -43,7 +45,9 @@ module.exports = function(app) {
               city: city,
               usState: usState,
               longitude: response[0].longitude,
-              latitude: response[0].latitude
+              latitude: response[0].latitude,
+              github:github,
+              image:image
             });
             newUser.save((err, savedUser) => {
               if (err) return response.json(err);

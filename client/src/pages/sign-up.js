@@ -4,9 +4,9 @@ import { Redirect } from "react-router-dom";
 import { DropDown } from "../components/Form";
 import "typeface-roboto";
 import Typography from "@material-ui/core/Typography";
-import Grid from '@material-ui/core/Grid';
-import '../styles/signup.css'
-import AccessibilityIcon from '@material-ui/icons/Accessibility';
+import Grid from "@material-ui/core/Grid";
+import "../styles/signup.css";
+import AccessibilityIcon from "@material-ui/icons/Accessibility";
 
 class Signup extends Component {
   constructor() {
@@ -19,7 +19,8 @@ class Signup extends Component {
       backEnd: "",
       city: "",
       usState: "AL",
-      confirmPassword: "",
+      image: "",
+      github: "",
       redirectTo: null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -45,7 +46,9 @@ class Signup extends Component {
         frontEnd: this.state.frontEnd,
         backEnd: this.state.backEnd,
         city: this.state.city,
-        usState: this.state.usState
+        usState: this.state.usState,
+        image: this.state.image,
+        github: this.state.github
       })
       .then(response => {
         console.log(response);
@@ -71,7 +74,9 @@ class Signup extends Component {
       return (
         <Grid className="signGrid">
           <Typography>
-            <h1>Set up your profile <AccessibilityIcon /></h1>
+            <h1>
+              Set up your profile <AccessibilityIcon />
+            </h1>
           </Typography>
           <form>
             <div>
@@ -88,9 +93,12 @@ class Signup extends Component {
               value={this.state.username}
               onChange={this.handleChange}
             />
-            <br /><br />
+            <br />
+            <br />
             <div className="form-group">
-              <Typography><label htmlFor="password">Password: </label></Typography>
+              <Typography>
+                <label htmlFor="password">Password: </label>
+              </Typography>
               <input
                 className="form-input"
                 placeholder="Password"
@@ -99,7 +107,8 @@ class Signup extends Component {
                 value={this.state.password}
                 onChange={this.handleChange}
               />
-              <br /><br />
+              <br />
+              <br />
               <div>
                 <Typography>
                   <label htmlFor="Email">Email Address: </label>
@@ -113,7 +122,8 @@ class Signup extends Component {
                 value={this.state.email}
                 onChange={this.handleChange}
               />
-              <br /><br />
+              <br />
+              <br />
               <Typography>
                 <label htmlFor="Frontend">Front End Technology: </label>
               </Typography>
@@ -125,7 +135,8 @@ class Signup extends Component {
                 value={this.state.frontEnd}
                 onChange={this.handleChange}
               />
-              <br /><br />
+              <br />
+              <br />
               <Typography>
                 <label htmlFor="Backend">Back End Technology: </label>
               </Typography>
@@ -137,7 +148,32 @@ class Signup extends Component {
                 value={this.state.backEnd}
                 onChange={this.handleChange}
               />
-              <br /><br />
+              <Typography>
+                <label htmlFor="github">Github Profile: </label>
+              </Typography>
+              <input
+                className="form-input"
+                placeholder="Github Profile"
+                type="github"
+                name="github"
+                value={this.state.github}
+                onChange={this.handleChange}
+              />
+              <br />
+              <br />
+              <Typography>
+                <label htmlFor="image">Image: </label>
+              </Typography>
+              <input
+                className="form-input"
+                placeholder="Enter a link for your profile image"
+                type="image_input"
+                name="image"
+                value={this.state.image}
+                onChange={this.handleChange}
+              />
+              <br />
+              <br />
               <Typography>
                 <label htmlFor="City">City: </label>
               </Typography>
@@ -149,7 +185,8 @@ class Signup extends Component {
                 value={this.state.city}
                 onChange={this.handleChange}
               />
-              <br /><br />
+              <br />
+              <br />
               <Typography>
                 <label htmlFor="State">State: </label>
               </Typography>
@@ -169,7 +206,7 @@ class Signup extends Component {
               type="submit"
             >
               JOIN OUR WORLD
-              </button>
+            </button>
           </form>
         </Grid>
       );

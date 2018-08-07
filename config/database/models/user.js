@@ -11,9 +11,11 @@ const userSchema = new Schema({
   frontEnd: { type: String, unique: false, required: true },
   backEnd: { type: String, unique: false, required: true },
   city: { type: String, unique: false, required: true },
-  usState: { type: String, unique: false, required: false },
+  usState: { type: String, unique: false, required: true },
   latitude: { type: Number, unique: false, required: false },
   longitude: { type: Number, unique: false, required: false },
+  github: { type: String, unique: false, required: false },
+  image: { type: String, unique: false, required: false },
   // message: {type: String, unique: false, reuqired: false, dateTime}
 });
 

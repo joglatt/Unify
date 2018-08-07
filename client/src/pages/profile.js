@@ -5,14 +5,15 @@ import api from "../api/api";
 import Input from "../components/Form/Input";
 import FormBtn from "../components/Form/FormBtn";
 import DeleteBtn from "../components/DeleteBtn";
-import '../styles/profile.css';
-import 'typeface-roboto';
-import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar';
-import BuildIcon from '@material-ui/icons/Build';
-import SaveIcon from '@material-ui/icons/Save';
-import PersonIcon from '@material-ui/icons/Person';
-import Grid from '@material-ui/core/Grid';
+import "../styles/profile.css";
+import "typeface-roboto";
+import Typography from "@material-ui/core/Typography";
+import Avatar from "@material-ui/core/Avatar";
+import BuildIcon from "@material-ui/icons/Build";
+import SaveIcon from "@material-ui/icons/Save";
+import PersonIcon from "@material-ui/icons/Person";
+import Grid from "@material-ui/core/Grid";
+import Frame from "../components/frame.js";
 
 class Profile extends Component {
   constructor() {
@@ -26,10 +27,11 @@ class Profile extends Component {
   }
 
   deleteUser = id => {
-    api.deleteUser(this.state.userInfo._id,)
+    api
+      .deleteUser(this.state.userInfo._id)
       .then(res => this.loadUser())
       .catch(err => console.log(err));
-      window.location.reload();
+    window.location.reload();
   };
 
   handleUpdate(isUpdate) {
@@ -89,38 +91,70 @@ class Profile extends Component {
 
   getReadOnly = () =>
     this.state.loggedIn && (
-      <Grid className='profGrid'>
-         <Avatar> <h2>Hi </h2></Avatar> 
-         <div className='lineTest'></div>
-         <Typography><h1> {this.state.userInfo.username} ! <PersonIcon/></h1> </Typography>  
-         <hr/>
-        <Typography><h2>Your preferred frontend technology:</h2> 
-        <h2 className='dbInfo'>{this.state.userInfo.frontEnd}</h2></Typography>
-        <Typography><h2>Your preferred backend technology:</h2> 
-        <h2 className='dbInfo'>{this.state.userInfo.backEnd}</h2></Typography>
-        <Typography><h2>Your email address:</h2> 
-        <h2 className='dbInfo'> {this.state.userInfo.email}</h2></Typography>
-        <hr/><br/>
-        <button onClick={() => this.handleUpdate(true)}>Make an update<BuildIcon/></button><br/><br/>
+      <Grid className="profGrid">
+        <Avatar>
+          {" "}
+          <h2>Hi </h2>
+        </Avatar>
+        <div className="lineTest" />
+        <Typography>
+          <h1>
+            {" "}
+            {this.state.userInfo.username} ! <PersonIcon />
+          </h1>{" "}
+        </Typography>
+        <hr />
+        <Frame data={this.state.userInfo} />
+        <Typography>
+          <h2>Your preferred frontend technology:</h2>
+          <h2 className="dbInfo">{this.state.userInfo.frontEnd}</h2>
+        </Typography>
+        <Typography>
+          <h2>Your preferred backend technology:</h2>
+          <h2 className="dbInfo">{this.state.userInfo.backEnd}</h2>
+        </Typography>
+        <Typography>
+          <h2>Your email address:</h2>
+          <h2 className="dbInfo"> {this.state.userInfo.email}</h2>
+        </Typography>
+        <hr />
+        <br />
+        <Typography>
+          <h2>Your Github Profile:</h2>
+          <a href={this.state.userInfo.github}> {this.state.userInfo.github}</a>
+        </Typography>
+        <hr />
+        <br />
+        <button onClick={() => this.handleUpdate(true)}>
+          Make an update<BuildIcon />
+        </button>
+        <br />
+        <br />
         <DeleteBtn onClick={() => this.deleteUser(this.state._id)} />
       </Grid>
     );
 
   getUpdateform = () =>
     this.state.loggedIn && (
-      <Grid className='profGrid'>
-        <Typography><h1>Hey {this.state.userInfo.username}, update your profile!</h1></Typography>
-        <hr/>
+      <Grid className="profGrid">
+        <Typography>
+          <h1>Hey {this.state.userInfo.username}, update your profile!</h1>
+        </Typography>
+        <hr />
         <form>
-          <Typography><h2>Your username:</h2></Typography>
+          <Typography>
+            <h2>Your username:</h2>
+          </Typography>
           <Input
             value={this.state.userInfo.username}
             onChange={this.handleInputChange}
             name="username"
             placeholder="Username (required)"
           />
-          <br/>
-          <Typography><h2>Your preferred frontend technology:</h2></Typography>
+          <br />
+          <Typography>
+            <h2>Your preferred frontend technology:</h2>
+          </Typography>
           <Input
             value={this.state.userInfo.frontEnd}
             onChange={this.handleInputChange}
@@ -128,7 +162,9 @@ class Profile extends Component {
             placeholder="frontEnd (required)"
           />
           <br />
-          <Typography><h2>Your preferred backend technology:</h2></Typography>
+          <Typography>
+            <h2>Your preferred backend technology:</h2>
+          </Typography>
           <Input
             value={this.state.userInfo.backEnd}
             onChange={this.handleInputChange}
@@ -136,21 +172,34 @@ class Profile extends Component {
             placeholder="backEnd (required)"
           />
           <br />
-          <Typography><h2>Your email address:</h2></Typography>
+          <Typography>
+            <h2>Your email address:</h2>
+          </Typography>
           <Input
             value={this.state.userInfo.email}
             onChange={this.handleInputChange}
             name="email"
             placeholder="email (required)"
           />
-          <br /><br />
+          <br />
+          <br />
+          <Typography>
+            <h2>Your Github Profile:</h2>
+          </Typography>
+          <Input
+            value={this.state.userInfo.github}
+            onChange={this.handleInputChange}
+            name="github"
+            placeholder="Github (required)"
+          />
+          <br />
+          <br />
           <FormBtn
             disabled={!this.state.username}
             onClick={this.handleFormSubmit}
           >
-            Keep these changes! <SaveIcon/>
+            Keep these changes! <SaveIcon />
           </FormBtn>
-          
         </form>
       </Grid>
     );
