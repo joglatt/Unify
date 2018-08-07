@@ -22,7 +22,7 @@ class Search extends Component {
         // frontEndScore: "",
         backEnd: null,
         // backEndScore: "",
-        location: null
+        city: null
       },
       searchResults: []
     };
@@ -84,8 +84,11 @@ class Search extends Component {
             username: apiResult.username,
             frontEnd: apiResult.frontEnd,
             backEnd: apiResult.backEnd,
-            location: apiResult.location,
-            email: apiResult.email
+            city: apiResult.city,
+            email: apiResult.email,
+            github:apiResult.github,
+            image:apiResult.image,
+            usState:apiResult.usState
           };
         });
 
@@ -147,15 +150,15 @@ class Search extends Component {
             {/*</select>*/}
             {/*</label>*/}
 
-            <h2>Location</h2>
-            <label htmlFor="location" />
+            <h2>City</h2>
+            <label htmlFor="city" />
             <input
               className="form-input"
               type="text"
-              id="location"
-              name="location"
-              placeholder="enter location"
-              value={this.state.location}
+              id="city"
+              name="city"
+              placeholder="enter city"
+              value={this.state.city}
               onChange={this.handleChange}
             />
             <br />

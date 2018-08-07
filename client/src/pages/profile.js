@@ -144,6 +144,15 @@ class Profile extends Component {
         <hr />
         <form>
           <Typography>
+            <h2>Your Profile Image Link:</h2>
+          </Typography>
+          <Input
+            value={this.state.userInfo.image}
+            onChange={this.handleInputChange}
+            name="image"
+            placeholder="Image Link"
+          />
+          <Typography>
             <h2>Your username:</h2>
           </Typography>
           <Input
