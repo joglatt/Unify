@@ -21,5 +21,5 @@ Google Maps are used to identify User location represented by pins on the maps.
 
 ## Demo
 
-![](https://youtu.be/C4lYMFYzgGw)
+[Click here for the demo](https://youtu.be/C4lYMFYzgGw)
 
