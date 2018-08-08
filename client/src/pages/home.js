@@ -28,9 +28,9 @@ class Home extends Component {
           };
           result.push(newMarker);
         });
-        console.log(result);
+        // console.log(result);
         this.setState({ markers: result });
-        console.log(res.data);
+        // console.log(res.data);
       })
 
       .catch(err => console.log(err));

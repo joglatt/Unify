@@ -30,13 +30,13 @@ class Signup extends Component {
     this.setState({
       [event.target.name]: event.target.value
     });
-    console.log(this.state.frontEnd);
-    console.log(this.state.backEnd);
+    // console.log(this.state.frontEnd);
+    // console.log(this.state.backEnd);
   }
 
   handleSubmit(event) {
-    console.log("sign-up handleSubmit, username: ");
-    console.log(this.state.username);
+    // console.log("sign-up handleSubmit, username: ");
+    // console.log(this.state.username);
     event.preventDefault();
 
     //request to server to add a new username/password
@@ -53,19 +53,19 @@ class Signup extends Component {
         github: this.state.github
       })
       .then(response => {
-        console.log(response);
+        // console.log(response);
         if (response.status === 200) {
           this.setState({
             //redirect to login page
             redirectTo: "/user/login"
           });
-          console.log(this.state.redirectTo);
+          // console.log(this.state.redirectTo);
           alert("successful signup");
         }
       })
       .catch(error => {
         alert("signup error: ");
-        console.log(error);
+        // console.log(error);
       });
   }
 

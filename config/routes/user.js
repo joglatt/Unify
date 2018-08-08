@@ -27,7 +27,7 @@ module.exports = function(app) {
     // ADD VALIDATION
     User.findOne({ username: username }, (err, user) => {
       if (err) {
-        console.log("User.js post error: ", err);
+        // console.log("User.js post error: ", err);
       } else if (user) {
         res.json({
           error: `Sorry, already a user with the username: ${username}`
@@ -52,7 +52,7 @@ module.exports = function(app) {
             newUser.save((err, savedUser) => {
               if (err) return res.json(err);
               console.log(savedUser);
-              response.json(savedUser);
+              res.json(savedUser);
             });
           })
           .catch(function(err) {
@@ -65,13 +65,13 @@ module.exports = function(app) {
   app.post(
     "/user/login",
     function(req, res, next) {
-      console.log("routes/user.js, login, req.body: ");
-      console.log(req.body);
+      // console.log("routes/user.js, login, req.body: ");
+      // console.log(req.body);
       next();
     },
     passport.authenticate("local"),
     (req, res) => {
-      console.log("logged in", req.user);
+      // console.log("logged in", req.user);
       var userInfo = {
         username: req.user.username
       };
@@ -80,8 +80,8 @@ module.exports = function(app) {
   );
 
   app.get("/user/", (req, res, next) => {
-    console.log("===== user!!======");
-    console.log(req.user);
+    // console.log("===== user!!======");
+    // console.log(req.user);
     if (req.user) {
       res.json({ user: req.user });
     } else {
@@ -100,8 +100,8 @@ module.exports = function(app) {
   });
 
   app.get("/user/profile", (req, res, next) => {
-    console.log("profile page");
-    console.log(req.user);
+    // console.log("profile page");
+    // console.log(req.user);
     if (req.user) {
       res.json({ user: req.user });
     } else {
@@ -109,8 +109,8 @@ module.exports = function(app) {
     }
   });
   app.get("/user/search", (req, res, next) => {
-    console.log("profile page");
-    console.log(req.user);
+    // console.log("profile page");
+    // console.log(req.user);
     if (req.user) {
       res.json({ user: req.user });
     } else {
