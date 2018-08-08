@@ -83,9 +83,10 @@ class Signup extends Component {
           <form>
             <div>
               <Typography>
-                <label htmlFor="username">Select A Username</label>
+              <h2><label htmlFor="username">Select A Username</label></h2>
               </Typography>
             </div>
+            <div id='box1'>
             <input
               className="form-input"
               type="text"
@@ -97,9 +98,10 @@ class Signup extends Component {
             />
             <br />
             <br />
+            </div>
             <div className="form-group">
               <Typography>
-                <label htmlFor="password">Password: </label>
+              <h2><label htmlFor="password">Password: </label></h2>
               </Typography>
               <input
                 className="form-input"
@@ -113,7 +115,7 @@ class Signup extends Component {
               <br />
               <div>
                 <Typography>
-                  <label htmlFor="Email">Email Address: </label>
+                <h2><label htmlFor="Email">Email Address: </label></h2>
                 </Typography>
               </div>
               <input
@@ -128,7 +130,7 @@ class Signup extends Component {
               <br />
               <br />
               <Typography>
-                <label htmlFor="github">Github Profile: </label>
+              <h2><label htmlFor="github">Github Profile: </label></h2>
               </Typography>
               <input
                 className="form-input"
@@ -141,7 +143,7 @@ class Signup extends Component {
               <br />
               <br />
               <Typography>
-                <label htmlFor="image">Image: </label>
+              <h2><label htmlFor="image">Image: </label></h2>
               </Typography>
               <input
                 className="form-input"
@@ -155,7 +157,7 @@ class Signup extends Component {
               <br />
               <div>
                 <Typography>
-                  <label htmlFor="Frontend">Front End Technology: </label>
+                <h2><label htmlFor="Frontend">Frontend Technology: </label></h2>
                 </Typography>
               </div>
               <div>
@@ -164,6 +166,7 @@ class Signup extends Component {
                   value={this.state.frontEnd}
                   onChange={this.handleChange}
                   className="form-input"
+                  id='boxLength'
                 >
                   <option value="Angular">Angular</option>
                   <option value="Aurelia">Aurelia</option>
@@ -187,7 +190,7 @@ class Signup extends Component {
               <br />
               <div>
                 <Typography>
-                  <label htmlFor="Backend">Back End Technology: </label>
+                <h2><label htmlFor="Backend">Backend Technology: </label></h2>
                 </Typography>
               </div>
               <div>
@@ -196,6 +199,7 @@ class Signup extends Component {
                   value={this.state.backEnd}
                   onChange={this.handleChange}
                   className="form-input"
+                  id='boxLength'
                 >
                   <option value="Apache">Apache</option>
                   <option value="Asana">Asana</option>
@@ -215,9 +219,8 @@ class Signup extends Component {
                   <option value="XAMPP">XAMPP</option>
                 </select>
               </div>
-              <br />
               <Typography>
-                <label htmlFor="City">City: </label>
+              <h2><label htmlFor="City">City: </label></h2>
               </Typography>
               <input
                 className="form-input"
@@ -228,14 +231,14 @@ class Signup extends Component {
                 onChange={this.handleChange}
               />
               <br />
-              <br />
               <Typography>
-                <label htmlFor="State">State: </label>
+              <h2><label htmlFor="State">State: </label></h2>
               </Typography>
               <DropDown
                 className="form-input"
                 type="usState"
                 name="usState"
+                id='boxLength'
                 value={this.state.usState}
                 onChange={this.handleChange}
               />

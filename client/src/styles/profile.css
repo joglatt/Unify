@@ -47,3 +47,7 @@ form {
     width: 100%;
     padding: 8px 25px 25px 30px;
 }
+
+.form-group {
+    width: 360%;
+}

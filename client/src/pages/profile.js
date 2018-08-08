@@ -124,8 +124,8 @@ class Profile extends Component {
             {this.state.userInfo.github}
           </a>
         </Typography>
-        <hr />
         <br />
+        <hr />
         <button onClick={() => this.handleUpdate(true)}>
           Make an update<BuildIcon />
         </button>
@@ -144,7 +144,7 @@ class Profile extends Component {
         <hr />
         <form>
           <Typography>
-            <h2>Your Profile Image Link:</h2>
+            <h2>Your profile image link:</h2>
           </Typography>
           <Input
             value={this.state.userInfo.image}
@@ -163,7 +163,7 @@ class Profile extends Component {
           />
           <br />
           <Typography>
-            <h2>Your preferred frontend tehcnologies:</h2>
+            <h2>Your preferred frontend technology:</h2>
           </Typography>
             <select
                 name="frontEnd"
@@ -191,7 +191,7 @@ class Profile extends Component {
             </select>
           <br />
           <Typography>
-            <h2>Your preferred backend technologies:</h2>
+            <h2>Your preferred backend technology:</h2>
           </Typography>
             <div>
                 <select
@@ -220,7 +220,7 @@ class Profile extends Component {
             </div>
           <br />
           <Typography>
-            <h2>Your Emauil address:</h2>
+            <h2>Your email address:</h2>
           </Typography>
           <Input
             value={this.state.userInfo.email}
@@ -228,7 +228,6 @@ class Profile extends Component {
             name="email"
             placeholder="email (required)"
           />
-          <br />
           <br />
           <Typography>
             <h2>Your Github Profile:</h2>

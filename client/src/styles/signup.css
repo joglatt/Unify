@@ -13,8 +13,16 @@
 .form-input  {
     border: 1.5px solid #1544a3;
     padding: 13.5px;
-    width: 25%;
     border-radius: 20px;
     font-size: 18px;
     font-weight: bolder;
+}
+
+#boxLength {
+    width: 250px;
+}
+
+#box1 {
+    width: 90%;
+    border-bottom: 1px solid #1544a3;
 }

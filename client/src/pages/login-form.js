@@ -65,7 +65,7 @@ class LoginForm extends Component {
                     <Typography> <h1>Login <FingerprintIcon/></h1> </Typography>
                     <form className="form-horizontal">
                         <div className="form-group">
-                            <Typography> <label className="form-label" htmlFor="username">Username</label></Typography>
+                            <Typography> <h2><label className="form-label" htmlFor="username">Username</label></h2></Typography>
                         </div>
                         <input className="form-input"
                             type="text"
@@ -77,11 +77,12 @@ class LoginForm extends Component {
                         />
                         <br /> <br/>
                         <div className="form-group">
-                            <Typography><label className="form-label" htmlFor="password">Password: </label></Typography>
+                            <Typography><h2><label className="form-label" htmlFor="password">Password: </label></h2></Typography>
                             <input className="form-input"
                                 placeholder="Password"
                                 type="password"
                                 name="password"
+                                id='loginPass'
                                 value={this.state.password}
                                 onChange={this.handleChange}
                             />
