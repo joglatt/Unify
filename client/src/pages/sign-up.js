@@ -15,8 +15,8 @@ class Signup extends Component {
       username: "",
       password: "",
       email: "",
-      frontEnd: "",
-      backEnd: "",
+      frontEnd: "Angular",
+      backEnd: "Apache",
       city: "",
       usState: "AL",
       image: "",
@@ -155,7 +155,7 @@ class Signup extends Component {
               <br />
               <div>
                 <Typography>
-                  <label htmlFor="Backend">Front End Technology: </label>
+                  <label htmlFor="Frontend">Front End Technology: </label>
                 </Typography>
               </div>
               <div>

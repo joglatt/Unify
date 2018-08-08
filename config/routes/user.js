@@ -50,9 +50,9 @@ module.exports = function(app) {
               image:image
             });
             newUser.save((err, savedUser) => {
-              if (err) return response.json(err);
+              if (err) return res.json(err);
               console.log(savedUser);
-              res.json(savedUser);
+              response.json(savedUser);
             });
           })
           .catch(function(err) {
