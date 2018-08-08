@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "debug": "concurrently \"node --inspect-brk=43240 server/server.js\" \"npm run client\"",
-    "start": "if-env NODE_ENV=production && npm run server/server.js || npm run start:dev",
-    "server": "node server/server.js",
+    "debug": "concurrently \"node --inspect-brk=43240 server.js\" \"npm run client\"",
+    "start": "if-env NODE_ENV=production && npm run server.js || npm run start:dev",
+    "server": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "seed": "node scripts/seedDB.js",
     "client": "cd client && npm run start",
