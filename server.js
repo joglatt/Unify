@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3001;
 // const nodemailer = require('nodemailer');
 
 
-
+app.use (express.static("client/build"))
 // MIDDLEWARE
 app.use(morgan('dev'))
 app.use(
