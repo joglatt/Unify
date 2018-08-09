@@ -93,7 +93,7 @@ module.exports = function(app) {
     if (req.user) {
       req.logout();
       // res.send({ msg: "logging out" });
-      res.status(200).json({ location: "/user/home" });
+      res.status(200).json({ location: "/" });
     } else {
       res.send({ msg: "no user to log out" });
     }
