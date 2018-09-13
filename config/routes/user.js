@@ -26,7 +26,7 @@ module.exports = function(app) {
     // ADD VALIDATION
     User.findOne({ username: username }, (err, user) => {
       if (err) {
-        console.log("User.js post error: ", err);
+        // console.log("User.js post error: ", err);
       } else if (user) {
         res.json({
           error: `Sorry, already a user with the username: ${username}`
@@ -49,7 +49,7 @@ module.exports = function(app) {
               image:image
             });
             newUser.save((err, savedUser) => {
-              if (err) return response.json(err);
+              if (err) return res.json(err);
               console.log(savedUser);
               res.json(savedUser);
             });
@@ -63,11 +63,24 @@ module.exports = function(app) {
 
   app.post(
     "/user/login",
-    990900
+    function(req, res, next) {
+      // console.log("routes/user.js, login, req.body: ");
+      // console.log(req.body);
+      next();
+    },
+    passport.authenticate("local"),
+    (req, res) => {
+      // console.log("logged in", req.user);
+      var userInfo = {
+        username: req.user.username
+      };
+      res.send(userInfo);
+    }
+  );
 
   app.get("/user/", (req, res, next) => {
-    console.log("===== user!!======");
-    console.log(req.user);
+    // console.log("===== user!!======");
+    // console.log(req.user);
     if (req.user) {
       res.json({ user: req.user });
     } else {
@@ -79,15 +92,15 @@ module.exports = function(app) {
     if (req.user) {
       req.logout();
       // res.send({ msg: "logging out" });
-      res.status(200).json({ location: "/user/home" });
+      res.status(200).json({ location: "/" });
     } else {
       res.send({ msg: "no user to log out" });
     }
   });
 
   app.get("/user/profile", (req, res, next) => {
-    console.log("profile page");
-    console.log(req.user);
+    // console.log("profile page");
+    // console.log(req.user);
     if (req.user) {
       res.json({ user: req.user });
     } else {
@@ -95,8 +108,8 @@ module.exports = function(app) {
     }
   });
   app.get("/user/search", (req, res, next) => {
-    console.log("profile page");
-    console.log(req.user);
+    // console.log("profile page");
+    // console.log(req.user);
     if (req.user) {
       res.json({ user: req.user });
     } else {

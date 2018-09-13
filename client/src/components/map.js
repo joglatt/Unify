@@ -49,11 +49,8 @@ const MyMapComponent = compose(
                 padding: `1px`
               }}
             >
-              <div style={{ fontSize: `10px`, fontColor: `#08233B` }}>
-                <div> User: {marker.username}</div>
-                <div>Front End: {marker.frontEnd}</div>
-                <div>Back End:{marker.backEnd}</div>
-                <a></a>
+              <div style={{ fontSize: `12px`, fontColor: `#08233B` }}>
+                <div>{marker.username}</div>
               </div>
             </div>
           </InfoBox>

@@ -3,7 +3,7 @@ import "typeface-roboto";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import "../styles/home.css";
-// import Container from "../components/Grid/container";
+import DoneIcon from "@material-ui/icons/Done";
 import MyMapComponent from "../components/map.js";
 import api from "../api/api";
 class Home extends Component {
@@ -28,9 +28,9 @@ class Home extends Component {
           };
           result.push(newMarker);
         });
-        console.log(result);
+        // console.log(result);
         this.setState({ markers: result });
-        console.log(res.data);
+        // console.log(res.data);
       })
 
       .catch(err => console.log(err));

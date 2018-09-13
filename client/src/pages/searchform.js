@@ -6,6 +6,9 @@ import "../styles/searchform.css";
 import Grid from "@material-ui/core/Grid";
 import SearchIcon from "@material-ui/icons/Search";
 import axios from "axios";
+import Typography from "@material-ui/core/Typography";
+import "typeface-roboto";
+
 class Search extends Component {
   //VERY IMPORTANT, Sets State
   constructor(props) {
@@ -104,9 +107,9 @@ class Search extends Component {
       return (
         <Grid className="searchGrid">
           <div>
-            <h1>Search For A User</h1>
+            <Typography><h1>Search For A User</h1></Typography>
             <hr />
-            <h2>Frontend Tech</h2>
+            <Typography><h2>Frontend Tech</h2></Typography>
               <div>
                   <select
                       name="frontEnd"
@@ -145,7 +148,7 @@ class Search extends Component {
             {/*<option value="5">Expert</option>*/}
             {/*</select>*/}
             {/*</label>*/}
-            <h2>Backend Tech</h2>
+            <Typography><h2>Backend Tech</h2></Typography>
               <div>
                   <select
                       name="backEnd"
@@ -183,7 +186,7 @@ class Search extends Component {
             {/*</select>*/}
             {/*</label>*/}
 
-            <h2>City</h2>
+            <Typography><h2>City</h2></Typography>
             <label htmlFor="city" />
             <input
               className="form-input"

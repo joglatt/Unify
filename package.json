@@ -4,13 +4,13 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "debug": "concurrently \"node --inspect-brk=43240 server/server.js\" \"npm run client\"",
-    "start": "if-env NODE_ENV=production && npm run server/server.js || npm run start:dev",
-    "server": "node server/server.js",
+    "debug": "concurrently \"node --inspect-brk=43240 server.js\" \"npm run client\"",
+    "start": "if-env NODE_ENV=production && npm run server.js || npm run start:dev",
+    "server": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "seed": "node scripts/seedDB.js",
     "client": "cd client && npm run start",
-    "install": "cd client && yarn install",
+    "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
@@ -21,25 +21,18 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
-    "@material-ui/core": "^1.4.1",
-    "@material-ui/icons": "^2.0.0",
     "babel-cli": "^6.26.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "connect-mongo": "^2.0.1",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
+    "if-env": "^1.0.4",
     "mongoose": "^5.0.2",
     "morgan": "^1.9.0",
     "node-geocoder": "^3.22.0",
     "nodemailer": "^4.6.7",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-google-maps": "^9.4.5",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.0",
-    "typeface-roboto": "0.0.54"
+    "passport-local": "^1.0.0"
   }
 }

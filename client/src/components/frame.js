@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import '../styles/frame.css';
+
 const imageStyle = {
   width: 275,
   height: 275,
@@ -9,7 +11,7 @@ class Frame extends Component {
   render() {
     const { data } = this.props;
     return (
-      <div>
+      <div className='profImage'>
         <img
           style={imageStyle}
           src={data.image}

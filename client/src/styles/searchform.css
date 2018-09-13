@@ -18,6 +18,11 @@
     font-size: 18px;
     font-weight: bolder;
 }
+
+#city {
+    width: 30%;
+}
+
 .btn  {
     border: 1.5px solid #1544a3;
     padding: 10px;
