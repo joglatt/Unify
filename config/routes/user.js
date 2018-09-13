@@ -12,8 +12,7 @@ const options = {
 const geocoder = NodeGeocoder(options);
 module.exports = function(app) {
   app.post("/user", (req, res) => {
-    console.log("user signup");
-    const {
+   const {
       username,
       password,
       email,
@@ -64,20 +63,7 @@ module.exports = function(app) {
 
   app.post(
     "/user/login",
-    function(req, res, next) {
-      console.log("routes/user.js, login, req.body: ");
-      console.log(req.body);
-      next();
-    },
-    passport.authenticate("local"),
-    (req, res) => {
-      console.log("logged in", req.user);
-      var userInfo = {
-        username: req.user.username
-      };
-      res.send(userInfo);
-    }
-  );
+    990900
 
   app.get("/user/", (req, res, next) => {
     console.log("===== user!!======");

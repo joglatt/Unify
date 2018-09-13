@@ -39,6 +39,7 @@ app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 
 
+
 // Routes
 require('./config/routes/user.js')(app)
 
